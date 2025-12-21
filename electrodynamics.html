@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Физика: Электродинамика и Магнетизм</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        h1 {
+            color: #64b5f6;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+
+        .subtitle {
+            color: #90a4ae;
+            font-size: 1.1em;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+        }
+
+        .nav-btn {
+            padding: 12px 24px;
+            background-color: #2d2d2d;
+            color: #e0e0e0;
+            border: 1px solid #444;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #3d3d3d;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn.active {
+            background-color: #1565c0;
+            border-color: #64b5f6;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .formula-section {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid #333;
+            transition: transform 0.3s ease;
+        }
+
+        .formula-section:hover {
+            transform: translateY(-5px);
+            border-color: #444;
+        }
+
+        .section-title {
+            color: #4fc3f7;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        .formula-group {
+            margin-bottom: 25px;
+        }
+
+        .formula-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #252525;
+            border-radius: 8px;
+            border-left: 4px solid #1565c0;
+        }
+
+        .formula-name {
+            font-weight: bold;
+            color: #bb86fc;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .formula-expression {
+            font-family: 'Cambria Math', serif;
+            font-size: 1.4em;
+            color: #ffb74d;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #2a2a2a;
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .variables-container {
+            margin: 15px 0;
+        }
+
+        .variable-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .variable-label {
+            min-width: 80px;
+            color: #a5d6a7;
+            font-weight: bold;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #2d2d2d;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid #444;
+        }
+
+        .mantissa-input {
+            width: 100px;
+            padding: 8px;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #555;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .exponent-input {
+            width: 70px;
+            padding: 8px;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #555;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .times-ten {
+            color: #90a4ae;
+            margin: 0 5px;
+        }
+
+        .angle-input {
+            width: 80px;
+            padding: 8px;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #555;
+            border-radius: 4px;
+            text-align: center;
+            margin-left: 10px;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .calculate-btn:hover {
+            background-color: #1565c0;
+        }
+
+        .result-container {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #1a237e;
+            border-radius: 8px;
+            border: 1px solid #303f9f;
+            display: none;
+        }
+
+        .result-title {
+            color: #bb86fc;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .result-value {
+            font-size: 1.3em;
+            color: #4fc3f7;
+            font-weight: bold;
+            word-break: break-all;
+        }
+
+        .unit {
+            color: #ffb74d;
+            font-size: 0.9em;
+        }
+
+        .clear-btn {
+            background-color: #d32f2f;
+            margin-top: 10px;
+        }
+
+        .clear-btn:hover {
+            background-color: #c62828;
+        }
+
+        .constants-info {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #2d2d2d;
+            border-radius: 5px;
+            font-size: 0.9em;
+            color: #90a4ae;
+            border: 1px solid #444;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+            }
+            
+            .nav-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ Физический калькулятор: Электродинамика и Магнетизм</h1>
+            <p class="subtitle">Введите известные значения и вычислите неизвестные величины</p>
+        </header>
+
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="window.location.href='mechanics.html'">Механика</button>
+            <button class="nav-btn" onclick="window.location.href='molecular.html'">Молекулярная физика</button>
+            <button class="nav-btn active">Электродинамика</button>
+            <button class="nav-btn" onclick="window.location.href='optics.html'">Оптика</button>
+            <button class="nav-btn" onclick="window.location.href='quantum.html'">Квантовая физика</button>
+        </div>
+
+        <div class="content">
+            <!-- Электростатика -->
+            <div class="formula-section">
+                <h2 class="section-title">⚡ Электростатика</h2>
+                
+                <div class="formula-group">
+                    <div class="formula-item">
+                        <div class="formula-name">Закон Кулона</div>
+                        <div class="formula-expression">F = k × (q₁ × q₂) / r²</div>
+                        <div class="constants-info">k = 8.99×10⁹ Н·м²/Кл²</div>
+                        <div class="variables-container">
+                            <div class="variable-row">
+                                <span class="variable-label">Сила (F):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input f-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input f-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Н</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Заряд 1 (q₁):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input q1-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input q1-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Кл</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Заряд 2 (q₂):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input q2-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input q2-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Кл</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Расстояние (r):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input r-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input r-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">м</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="calculate-btn" onclick="calculateCoulombsLaw()">Вычислить</button>
+                        <button class="calculate-btn clear-btn" onclick="clearCoulombsLaw()">Очистить</button>
+                        <div class="result-container" id="result-coulombs-law">
+                            <div class="result-title">Результат:</div>
+                            <div class="result-value"></div>
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Напряжённость поля точечного заряда</div>
+                        <div class="formula-expression">E = k × q / r²</div>
+                        <div class="constants-info">k = 8.99×10⁹ Н·м²/Кл²</div>
+                        <div class="variables-container">
+                            <div class="variable-row">
+                                <span class="variable-label">Напряжённость (E):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input e-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input e-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Н/Кл</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Заряд (q):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input q-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input q-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Кл</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Расстояние (r):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input r-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input r-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">м</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="calculate-btn" onclick="calculateElectricField()">Вычислить</button>
+                        <button class="calculate-btn clear-btn" onclick="clearElectricField()">Очистить</button>
+                        <div class="result-container" id="result-electric-field">
+                            <div class="result-title">Результат:</div>
+                            <div class="result-value"></div>
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Энергия конденсатора</div>
+                        <div class="formula-expression">W = (C × U²) / 2 = q² / (2C) = (q × U) / 2</div>
+                        <div class="variables-container">
+                            <div class="variable-row">
+                                <span class="variable-label">Энергия (W):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input w-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input w-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Дж</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Ёмкость (C):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input c-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input c-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Ф</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Напряжение (U):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input u-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input u-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">В</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Заряд (q):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input q-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input q-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Кл</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="calculate-btn" onclick="calculateCapacitorEnergy()">Вычислить</button>
+                        <button class="calculate-btn clear-btn" onclick="clearCapacitorEnergy()">Очистить</button>
+                        <div class="result-container" id="result-capacitor-energy">
+                            <div class="result-title">Результат:</div>
+                            <div class="result-value"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Постоянный ток -->
+            <div class="formula-section">
+                <h2 class="section-title">🔌 Постоянный ток</h2>
+                
+                <div class="formula-group">
+                    <div class="formula-item">
+                        <div class="formula-name">Закон Ома для участка цепи</div>
+                        <div class="formula-expression">I = U / R</div>
+                        <div class="variables-container">
+                            <div class="variable-row">
+                                <span class="variable-label">Сила тока (I):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input i-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input i-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">А</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Напряжение (U):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input u-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input u-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">В</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Сопротивление (R):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input r-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input r-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Ом</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="calculate-btn" onclick="calculateOhmsLaw()">Вычислить</button>
+                        <button class="calculate-btn clear-btn" onclick="clearOhmsLaw()">Очистить</button>
+                        <div class="result-container" id="result-ohms-law">
+                            <div class="result-title">Результат:</div>
+                            <div class="result-value"></div>
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Закон Ома для полной цепи</div>
+                        <div class="formula-expression">I = ℰ / (R + r)</div>
+                        <div class="variables-container">
+                            <div class="variable-row">
+                                <span class="variable-label">Сила тока (I):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input i-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input i-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">А</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">ЭДС (ℰ):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input emf-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input emf-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">В</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Сопр. (R):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input r-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input r-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Ом</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Внутр. сопр. (r):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input ri-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input ri-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Ом</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="calculate-btn" onclick="calculateOhmsLawFull()">Вычислить</button>
+                        <button class="calculate-btn clear-btn" onclick="clearOhmsLawFull()">Очистить</button>
+                        <div class="result-container" id="result-ohms-law-full">
+                            <div class="result-title">Результат:</div>
+                            <div class="result-value"></div>
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Мощность тока</div>
+                        <div class="formula-expression">P = I × U = I² × R = U² / R</div>
+                        <div class="variables-container">
+                            <div class="variable-row">
+                                <span class="variable-label">Мощность (P):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input p-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input p-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Вт</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Сила тока (I):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input i-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input i-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">А</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Напряжение (U):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input u-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input u-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">В</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Сопр. (R):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input r-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input r-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Ом</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="calculate-btn" onclick="calculatePower()">Вычислить</button>
+                        <button class="calculate-btn clear-btn" onclick="clearPower()">Очистить</button>
+                        <div class="result-container" id="result-power">
+                            <div class="result-title">Результат:</div>
+                            <div class="result-value"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Магнетизм -->
+            <div class="formula-section">
+                <h2 class="section-title">🧲 Магнетизм</h2>
+                
+                <div class="formula-group">
+                    <div class="formula-item">
+                        <div class="formula-name">Сила Ампера</div>
+                        <div class="formula-expression">F = I × B × L × sin(α)</div>
+                        <div class="variables-container">
+                            <div class="variable-row">
+                                <span class="variable-label">Сила (F):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input f-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input f-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Н</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Ток (I):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input i-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input i-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">А</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Индукция (B):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input b-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input b-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Тл</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Длина (L):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input l-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input l-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">м</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Угол (α):</span>
+                                <div class="input-group">
+                                    <input type="number" class="angle-input" id="ampere-angle" placeholder="град" value="90">
+                                    <span class="unit">°</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="calculate-btn" onclick="calculateAmpereForce()">Вычислить</button>
+                        <button class="calculate-btn clear-btn" onclick="clearAmpereForce()">Очистить</button>
+                        <div class="result-container" id="result-ampere-force">
+                            <div class="result-title">Результат:</div>
+                            <div class="result-value"></div>
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Сила Лоренца</div>
+                        <div class="formula-expression">F = q × v × B × sin(α)</div>
+                        <div class="variables-container">
+                            <div class="variable-row">
+                                <span class="variable-label">Сила (F):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input f-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input f-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Н</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Заряд (q):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input q-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input q-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Кл</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Скорость (v):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input v-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input v-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">м/с</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Индукция (B):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input b-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input b-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Тл</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Угол (α):</span>
+                                <div class="input-group">
+                                    <input type="number" class="angle-input" id="lorentz-angle" placeholder="град" value="90">
+                                    <span class="unit">°</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="calculate-btn" onclick="calculateLorentzForce()">Вычислить</button>
+                        <button class="calculate-btn clear-btn" onclick="clearLorentzForce()">Очистить</button>
+                        <div class="result-container" id="result-lorentz-force">
+                            <div class="result-title">Результат:</div>
+                            <div class="result-value"></div>
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Закон электромагнитной индукции</div>
+                        <div class="formula-expression">ℰ = -ΔΦ / Δt</div>
+                        <div class="variables-container">
+                            <div class="variable-row">
+                                <span class="variable-label">ЭДС (ℰ):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input emf-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input emf-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">В</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Изменение потока (ΔΦ):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input dphi-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input dphi-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Вб</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Время (Δt):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input dt-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input dt-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">с</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="calculate-btn" onclick="calculateFaradayLaw()">Вычислить</button>
+                        <button class="calculate-btn clear-btn" onclick="clearFaradayLaw()">Очистить</button>
+                        <div class="result-container" id="result-faraday-law">
+                            <div class="result-title">Результат:</div>
+                            <div class="result-value"></div>
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Магнитный поток</div>
+                        <div class="formula-expression">Φ = B × S × cos(α)</div>
+                        <div class="variables-container">
+                            <div class="variable-row">
+                                <span class="variable-label">Поток (Φ):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input phi-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input phi-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Вб</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Индукция (B):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input b-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input b-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">Тл</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Площадь (S):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input s-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input s-exponent" placeholder="степень" value="0"></sup>
+                                    <span class="unit">м²</span>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Угол (α):</span>
+                                <div class="input-group">
+                                    <input type="number" class="angle-input" id="flux-angle" placeholder="град" value="0">
+                                    <span class="unit">°</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="calculate-btn" onclick="calculateMagneticFlux()">Вычислить</button>
+                        <button class="calculate-btn clear-btn" onclick="clearMagneticFlux()">Очистить</button>
+                        <div class="result-container" id="result-magnetic-flux">
+                            <div class="result-title">Результат:</div>
+                            <div class="result-value"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Константы
+        const k = 8.9875517873681764e9; // постоянная Кулона, Н·м²/Кл²
+        const e = 1.602176634e-19; // элементарный заряд, Кл
+
+        // Утилиты
+        function toNumber(mantissa, exponent) {
+            const mantissaValue = parseFloat(mantissa);
+            const exponentValue = parseInt(exponent) || 0;
+            if (isNaN(mantissaValue)) return NaN;
+            return mantissaValue * Math.pow(10, exponentValue);
+        }
+
+        function formatResult(value, unit) {
+            if (value === 0) return `0 ${unit}`;
+            if (Math.abs(value) >= 10000 || (Math.abs(value) < 0.001 && value !== 0)) {
+                const exponent = Math.floor(Math.log10(Math.abs(value)));
+                const mantissa = value / Math.pow(10, exponent);
+                return `${mantissa.toFixed(4)} ×10<sup>${exponent}</sup> ${unit}`;
+            }
+            return `${value.toFixed(6)} ${unit}`;
+        }
+
+        function showResult(elementId, message) {
+            const element = document.getElementById(elementId);
+            element.querySelector('.result-value').innerHTML = message;
+            element.style.display = 'block';
+        }
+
+        function hideResult(elementId) {
+            document.getElementById(elementId).style.display = 'none';
+        }
+
+        function clearInputs(container) {
+            const inputs = container.querySelectorAll('input[type="number"]');
+            inputs.forEach(input => {
+                if (input.id.includes('angle')) {
+                    if (input.id === 'ampere-angle') input.value = '90';
+                    else if (input.id === 'lorentz-angle') input.value = '90';
+                    else if (input.id === 'flux-angle') input.value = '0';
+                } else {
+                    input.value = '';
+                }
+            });
+        }
+
+        function degreesToRadians(degrees) {
+            return degrees * Math.PI / 180;
+        }
+
+        // Функции для электростатики
+        function calculateCoulombsLaw() {
+            const container = event.target.closest('.formula-item');
+            const f = toNumber(container.querySelector('.f-mantissa').value, container.querySelector('.f-exponent').value);
+            const q1 = toNumber(container.querySelector('.q1-mantissa').value, container.querySelector('.q1-exponent').value);
+            const q2 = toNumber(container.querySelector('.q2-mantissa').value, container.querySelector('.q2-exponent').value);
+            const r = toNumber(container.querySelector('.r-mantissa').value, container.querySelector('.r-exponent').value);
+            
+            let result, unit, message;
+            const values = [f, q1, q2, r];
+            const filled = values.filter(val => !isNaN(val)).length;
+            
+            if (filled < 3) {
+                message = "Введите значения для любых трёх величин";
+            } else {
+                if (isNaN(f)) {
+                    result = k * Math.abs(q1 * q2) / (r * r);
+                    unit = "Н";
+                    message = `Сила F = ${formatResult(result, unit)}`;
+                } else if (isNaN(q1)) {
+                    if (q2 === 0) {
+                        message = "Заряд q₂ не может быть нулевым";
+                    } else {
+                        result = Math.sqrt(Math.abs(f * r * r / (k * q2)));
+                        unit = "Кл";
+                        message = `Заряд q₁ = ${formatResult(result, unit)}`;
+                    }
+                } else if (isNaN(q2)) {
+                    if (q1 === 0) {
+                        message = "Заряд q₁ не может быть нулевым";
+                    } else {
+                        result = Math.sqrt(Math.abs(f * r * r / (k * q1)));
+                        unit = "Кл";
+                        message = `Заряд q₂ = ${formatResult(result, unit)}`;
+                    }
+                } else if (isNaN(r)) {
+                    if (f === 0) {
+                        message = "Сила F не может быть нулевой";
+                    } else {
+                        result = Math.sqrt(Math.abs(k * q1 * q2 / f));
+                        unit = "м";
+                        message = `Расстояние r = ${formatResult(result, unit)}`;
+                    }
+                }
+            }
+            
+            showResult('result-coulombs-law', message);
+        }
+
+        function clearCoulombsLaw() {
+            const container = document.querySelector('.formula-section:nth-child(1) .formula-item:nth-child(1)');
+            clearInputs(container);
+            hideResult('result-coulombs-law');
+        }
+
+        function calculateElectricField() {
+            const container = event.target.closest('.formula-item');
+            const eField = toNumber(container.querySelector('.e-mantissa').value, container.querySelector('.e-exponent').value);
+            const q = toNumber(container.querySelector('.q-mantissa').value, container.querySelector('.q-exponent').value);
+            const r = toNumber(container.querySelector('.r-mantissa').value, container.querySelector('.r-exponent').value);
+            
+            let result, unit, message;
+            
+            if (!isNaN(q) && !isNaN(r)) {
+                result = k * Math.abs(q) / (r * r);
+                unit = "Н/Кл";
+                message = `Напряжённость E = ${formatResult(result, unit)}`;
+            } else if (!isNaN(eField) && !isNaN(r)) {
+                result = eField * r * r / k;
+                unit = "Кл";
+                message = `Заряд q = ${formatResult(result, unit)}`;
+            } else if (!isNaN(eField) && !isNaN(q)) {
+                result = Math.sqrt(k * Math.abs(q) / eField);
+                unit = "м";
+                message = `Расстояние r = ${formatResult(result, unit)}`;
+            } else {
+                message = "Введите значения для любых двух величин";
+            }
+            
+            showResult('result-electric-field', message);
+        }
+
+        function clearElectricField() {
+            const container = document.querySelector('.formula-section:nth-child(1) .formula-item:nth-child(2)');
+            clearInputs(container);
+            hideResult('result-electric-field');
+        }
+
+        function calculateCapacitorEnergy() {
+            const container = event.target.closest('.formula-item');
+            const w = toNumber(container.querySelector('.w-mantissa').value, container.querySelector('.w-exponent').value);
+            const c = toNumber(container.querySelector('.c-mantissa').value, container.querySelector('.c-exponent').value);
+            const u = toNumber(container.querySelector('.u-mantissa').value, container.querySelector('.u-exponent').value);
+            const q = toNumber(container.querySelector('.q-mantissa').value, container.querySelector('.q-exponent').value);
+            
+            let result, unit, message;
+            
+            // Проверяем, какие комбинации введены
+            const values = {w, c, u, q};
+            const filled = Object.values(values).filter(val => !isNaN(val)).length;
+            
+            if (filled < 3) {
+                message = "Введите значения для любых трёх величин";
+            } else {
+                // Если известны C и U
+                if (!isNaN(c) && !isNaN(u)) {
+                    result = 0.5 * c * u * u;
+                    unit = "Дж";
+                    message = `Энергия W = ${formatResult(result, unit)}<br>`;
+                    message += `Заряд q = ${formatResult(c * u, 'Кл')}`;
+                }
+                // Если известны q и C
+                else if (!isNaN(q) && !isNaN(c)) {
+                    result = q * q / (2 * c);
+                    unit = "Дж";
+                    message = `Энергия W = ${formatResult(result, unit)}<br>`;
+                    message += `Напряжение U = ${formatResult(q / c, 'В')}`;
+                }
+                // Если известны q и U
+                else if (!isNaN(q) && !isNaN(u)) {
+                    result = 0.5 * q * u;
+                    unit = "Дж";
+                    message = `Энергия W = ${formatResult(result, unit)}<br>`;
+                    message += `Ёмкость C = ${formatResult(q / u, 'Ф')}`;
+                }
+                // Если известны W и C
+                else if (!isNaN(w) && !isNaN(c)) {
+                    result = Math.sqrt(2 * w / c);
+                    unit = "В";
+                    message = `Напряжение U = ${formatResult(result, unit)}<br>`;
+                    message += `Заряд q = ${formatResult(Math.sqrt(2 * w * c), 'Кл')}`;
+                }
+                // Если известны W и U
+                else if (!isNaN(w) && !isNaN(u)) {
+                    result = 2 * w / (u * u);
+                    unit = "Ф";
+                    message = `Ёмкость C = ${formatResult(result, unit)}<br>`;
+                    message += `Заряд q = ${formatResult(2 * w / u, 'Кл')}`;
+                }
+                // Если известны W и q
+                else if (!isNaN(w) && !isNaN(q)) {
+                    result = 2 * w / q;
+                    unit = "В";
+                    message = `Напряжение U = ${formatResult(result, unit)}<br>`;
+                    message += `Ёмкость C = ${formatResult(q * q / (2 * w), 'Ф')}`;
+                }
+            }
+            
+            showResult('result-capacitor-energy', message);
+        }
+
+        function clearCapacitorEnergy() {
+            const container = document.querySelector('.formula-section:nth-child(1) .formula-item:nth-child(3)');
+            clearInputs(container);
+            hideResult('result-capacitor-energy');
+        }
+
+        // Функции для постоянного тока
+        function calculateOhmsLaw() {
+            const container = event.target.closest('.formula-item');
+            const i = toNumber(container.querySelector('.i-mantissa').value, container.querySelector('.i-exponent').value);
+            const u = toNumber(container.querySelector('.u-mantissa').value, container.querySelector('.u-exponent').value);
+            const r = toNumber(container.querySelector('.r-mantissa').value, container.querySelector('.r-exponent').value);
+            
+            let result, unit, message;
+            
+            if (!isNaN(u) && !isNaN(r)) {
+                result = u / r;
+                unit = "А";
+                message = `Сила тока I = ${formatResult(result, unit)}`;
+            } else if (!isNaN(i) && !isNaN(r)) {
+                result = i * r;
+                unit = "В";
+                message = `Напряжение U = ${formatResult(result, unit)}`;
+            } else if (!isNaN(i) && !isNaN(u)) {
+                result = u / i;
+                unit = "Ом";
+                message = `Сопротивление R = ${formatResult(result, unit)}`;
+            } else {
+                message = "Введите значения для любых двух величин";
+            }
+            
+            showResult('result-ohms-law', message);
+        }
+
+        function clearOhmsLaw() {
+            const container = document.querySelector('.formula-section:nth-child(2) .formula-item:nth-child(1)');
+            clearInputs(container);
+            hideResult('result-ohms-law');
+        }
+
+        function calculateOhmsLawFull() {
+            const container = event.target.closest('.formula-item');
+            const i = toNumber(container.querySelector('.i-mantissa').value, container.querySelector('.i-exponent').value);
+            const emf = toNumber(container.querySelector('.emf-mantissa').value, container.querySelector('.emf-exponent').value);
+            const r = toNumber(container.querySelector('.r-mantissa').value, container.querySelector('.r-exponent').value);
+            const ri = toNumber(container.querySelector('.ri-mantissa').value, container.querySelector('.ri-exponent').value);
+            
+            let result, unit, message;
+            const values = [i, emf, r, ri];
+            const filled = values.filter(val => !isNaN(val)).length;
+            
+            if (filled < 3) {
+                message = "Введите значения для любых трёх величин";
+            } else {
+                if (isNaN(i)) {
+                    result = emf / (r + ri);
+                    unit = "А";
+                    message = `Сила тока I = ${formatResult(result, unit)}`;
+                } else if (isNaN(emf)) {
+                    result = i * (r + ri);
+                    unit = "В";
+                    message = `ЭДС ℰ = ${formatResult(result, unit)}`;
+                } else if (isNaN(r)) {
+                    result = emf / i - ri;
+                    unit = "Ом";
+                    message = `Сопротивление R = ${formatResult(result, unit)}`;
+                } else if (isNaN(ri)) {
+                    result = emf / i - r;
+                    unit = "Ом";
+                    message = `Внутр. сопротивление r = ${formatResult(result, unit)}`;
+                }
+            }
+            
+            showResult('result-ohms-law-full', message);
+        }
+
+        function clearOhmsLawFull() {
+            const container = document.querySelector('.formula-section:nth-child(2) .formula-item:nth-child(2)');
+            clearInputs(container);
+            hideResult('result-ohms-law-full');
+        }
+
+        function calculatePower() {
+            const container = event.target.closest('.formula-item');
+            const p = toNumber(container.querySelector('.p-mantissa').value, container.querySelector('.p-exponent').value);
+            const i = toNumber(container.querySelector('.i-mantissa').value, container.querySelector('.i-exponent').value);
+            const u = toNumber(container.querySelector('.u-mantissa').value, container.querySelector('.u-exponent').value);
+            const r = toNumber(container.querySelector('.r-mantissa').value, container.querySelector('.r-exponent').value);
+            
+            let result, unit, message;
+            
+            // Определяем, какие величины известны
+            const known = {};
+            if (!isNaN(p)) known.p = p;
+            if (!isNaN(i)) known.i = i;
+            if (!isNaN(u)) known.u = u;
+            if (!isNaN(r)) known.r = r;
+            
+            const knownCount = Object.keys(known).length;
+            
+            if (knownCount < 2) {
+                message = "Введите значения для любых двух величин";
+            } else {
+                // Если известны I и U
+                if (known.i !== undefined && known.u !== undefined) {
+                    result = known.i * known.u;
+                    unit = "Вт";
+                    message = `Мощность P = ${formatResult(result, unit)}<br>`;
+                    message += `Сопротивление R = ${formatResult(known.u / known.i, 'Ом')}`;
+                }
+                // Если известны I и R
+                else if (known.i !== undefined && known.r !== undefined) {
+                    result = known.i * known.i * known.r;
+                    unit = "Вт";
+                    message = `Мощность P = ${formatResult(result, unit)}<br>`;
+                    message += `Напряжение U = ${formatResult(known.i * known.r, 'В')}`;
+                }
+                // Если известны U и R
+                else if (known.u !== undefined && known.r !== undefined) {
+                    result = known.u * known.u / known.r;
+                    unit = "Вт";
+                    message = `Мощность P = ${formatResult(result, unit)}<br>`;
+                    message += `Сила тока I = ${formatResult(known.u / known.r, 'А')}`;
+                }
+                // Если известны P и I
+                else if (known.p !== undefined && known.i !== undefined) {
+                    result = known.p / known.i;
+                    unit = "В";
+                    message = `Напряжение U = ${formatResult(result, unit)}<br>`;
+                    message += `Сопротивление R = ${formatResult(known.p / (known.i * known.i), 'Ом')}`;
+                }
+                // Если известны P и U
+                else if (known.p !== undefined && known.u !== undefined) {
+                    result = known.p / known.u;
+                    unit = "А";
+                    message = `Сила тока I = ${formatResult(result, unit)}<br>`;
+                    message += `Сопротивление R = ${formatResult(known.u * known.u / known.p, 'Ом')}`;
+                }
+                // Если известны P и R
+                else if (known.p !== undefined && known.r !== undefined) {
+                    result = Math.sqrt(known.p * known.r);
+                    unit = "В";
+                    const current = Math.sqrt(known.p / known.r);
+                    message = `Напряжение U = ${formatResult(result, unit)}<br>`;
+                    message += `Сила тока I = ${formatResult(current, 'А')}`;
+                }
+            }
+            
+            showResult('result-power', message);
+        }
+
+        function clearPower() {
+            const container = document.querySelector('.formula-section:nth-child(2) .formula-item:nth-child(3)');
+            clearInputs(container);
+            hideResult('result-power');
+        }
+
+        // Функции для магнетизма
+        function calculateAmpereForce() {
+            const container = event.target.closest('.formula-item');
+            const f = toNumber(container.querySelector('.f-mantissa').value, container.querySelector('.f-exponent').value);
+            const i = toNumber(container.querySelector('.i-mantissa').value, container.querySelector('.i-exponent').value);
+            const b = toNumber(container.querySelector('.b-mantissa').value, container.querySelector('.b-exponent').value);
+            const l = toNumber(container.querySelector('.l-mantissa').value, container.querySelector('.l-exponent').value);
+            const angle = parseFloat(document.getElementById('ampere-angle').value);
+            const sinAlpha = Math.sin(degreesToRadians(angle));
+            
+            let result, unit, message;
+            const values = [f, i, b, l];
+            const filled = values.filter(val => !isNaN(val)).length;
+            
+            if (filled < 3) {
+                message = "Введите значения для любых трёх величин";
+            } else {
+                if (isNaN(f)) {
+                    result = i * b * l * sinAlpha;
+                    unit = "Н";
+                    message = `Сила F = ${formatResult(result, unit)}`;
+                } else if (isNaN(i)) {
+                    if (b * l * sinAlpha === 0) {
+                        message = "Произведение B×L×sinα не может быть нулевым";
+                    } else {
+                        result = f / (b * l * sinAlpha);
+                        unit = "А";
+                        message = `Сила тока I = ${formatResult(result, unit)}`;
+                    }
+                } else if (isNaN(b)) {
+                    if (i * l * sinAlpha === 0) {
+                        message = "Произведение I×L×sinα не может быть нулевым";
+                    } else {
+                        result = f / (i * l * sinAlpha);
+                        unit = "Тл";
+                        message = `Индукция B = ${formatResult(result, unit)}`;
+                    }
+                } else if (isNaN(l)) {
+                    if (i * b * sinAlpha === 0) {
+                        message = "Произведение I×B×sinα не может быть нулевым";
+                    } else {
+                        result = f / (i * b * sinAlpha);
+                        unit = "м";
+                        message = `Длина L = ${formatResult(result, unit)}`;
+                    }
+                }
+            }
+            
+            showResult('result-ampere-force', message);
+        }
+
+        function clearAmpereForce() {
+            const container = document.querySelector('.formula-section:nth-child(3) .formula-item:nth-child(1)');
+            clearInputs(container);
+            hideResult('result-ampere-force');
+        }
+
+        function calculateLorentzForce() {
+            const container = event.target.closest('.formula-item');
+            const f = toNumber(container.querySelector('.f-mantissa').value, container.querySelector('.f-exponent').value);
+            const q = toNumber(container.querySelector('.q-mantissa').value, container.querySelector('.q-exponent').value);
+            const v = toNumber(container.querySelector('.v-mantissa').value, container.querySelector('.v-exponent').value);
+            const b = toNumber(container.querySelector('.b-mantissa').value, container.querySelector('.b-exponent').value);
+            const angle = parseFloat(document.getElementById('lorentz-angle').value);
+            const sinAlpha = Math.sin(degreesToRadians(angle));
+            
+            let result, unit, message;
+            const values = [f, q, v, b];
+            const filled = values.filter(val => !isNaN(val)).length;
+            
+            if (filled < 3) {
+                message = "Введите значения для любых трёх величин";
+            } else {
+                if (isNaN(f)) {
+                    result = q * v * b * sinAlpha;
+                    unit = "Н";
+                    message = `Сила F = ${formatResult(result, unit)}`;
+                } else if (isNaN(q)) {
+                    if (v * b * sinAlpha === 0) {
+                        message = "Произведение v×B×sinα не может быть нулевым";
+                    } else {
+                        result = f / (v * b * sinAlpha);
+                        unit = "Кл";
+                        message = `Заряд q = ${formatResult(result, unit)}`;
+                    }
+                } else if (isNaN(v)) {
+                    if (q * b * sinAlpha === 0) {
+                        message = "Произведение q×B×sinα не может быть нулевым";
+                    } else {
+                        result = f / (q * b * sinAlpha);
+                        unit = "м/с";
+                        message = `Скорость v = ${formatResult(result, unit)}`;
+                    }
+                } else if (isNaN(b)) {
+                    if (q * v * sinAlpha === 0) {
+                        message = "Произведение q×v×sinα не может быть нулевым";
+                    } else {
+                        result = f / (q * v * sinAlpha);
+                        unit = "Тл";
+                        message = `Индукция B = ${formatResult(result, unit)}`;
+                    }
+                }
+            }
+            
+            showResult('result-lorentz-force', message);
+        }
+
+        function clearLorentzForce() {
+            const container = document.querySelector('.formula-section:nth-child(3) .formula-item:nth-child(2)');
+            clearInputs(container);
+            hideResult('result-lorentz-force');
+        }
+
+        function calculateFaradayLaw() {
+            const container = event.target.closest('.formula-item');
+            const emf = toNumber(container.querySelector('.emf-mantissa').value, container.querySelector('.emf-exponent').value);
+            const dphi = toNumber(container.querySelector('.dphi-mantissa').value, container.querySelector('.dphi-exponent').value);
+            const dt = toNumber(container.querySelector('.dt-mantissa').value, container.querySelector('.dt-exponent').value);
+            
+            let result, unit, message;
+            
+            if (!isNaN(dphi) && !isNaN(dt)) {
+                result = Math.abs(dphi) / dt;
+                unit = "В";
+                message = `ЭДС |ℰ| = ${formatResult(result, unit)}`;
+            } else if (!isNaN(emf) && !isNaN(dt)) {
+                result = emf * dt;
+                unit = "Вб";
+                message = `Изменение потока |ΔΦ| = ${formatResult(result, unit)}`;
+            } else if (!isNaN(emf) && !isNaN(dphi)) {
+                result = Math.abs(dphi) / emf;
+                unit = "с";
+                message = `Время Δt = ${formatResult(result, unit)}`;
+            } else {
+                message = "Введите значения для любых двух величин";
+            }
+            
+            showResult('result-faraday-law', message);
+        }
+
+        function clearFaradayLaw() {
+            const container = document.querySelector('.formula-section:nth-child(3) .formula-item:nth-child(3)');
+            clearInputs(container);
+            hideResult('result-faraday-law');
+        }
+
+        function calculateMagneticFlux() {
+            const container = event.target.closest('.formula-item');
+            const phi = toNumber(container.querySelector('.phi-mantissa').value, container.querySelector('.phi-exponent').value);
+            const b = toNumber(container.querySelector('.b-mantissa').value, container.querySelector('.b-exponent').value);
+            const s = toNumber(container.querySelector('.s-mantissa').value, container.querySelector('.s-exponent').value);
+            const angle = parseFloat(document.getElementById('flux-angle').value);
+            const cosAlpha = Math.cos(degreesToRadians(angle));
+            
+            let result, unit, message;
+            
+            if (!isNaN(b) && !isNaN(s)) {
+                result = b * s * Math.abs(cosAlpha);
+                unit = "Вб";
+                message = `Магнитный поток Φ = ${formatResult(result, unit)}`;
+            } else if (!isNaN(phi) && !isNaN(s) && cosAlpha !== 0) {
+                result = phi / (s * Math.abs(cosAlpha));
+                unit = "Тл";
+                message = `Индукция B = ${formatResult(result, unit)}`;
+            } else if (!isNaN(phi) && !isNaN(b) && cosAlpha !== 0) {
+                result = phi / (b * Math.abs(cosAlpha));
+                unit = "м²";
+                message = `Площадь S = ${formatResult(result, unit)}`;
+            } else {
+                message = "Введите значения для любых двух величин (угол не должен быть 90°)";
+            }
+            
+            showResult('result-magnetic-flux', message);
+        }
+
+        function clearMagneticFlux() {
+            const container = document.querySelector('.formula-section:nth-child(3) .formula-item:nth-child(4)');
+            clearInputs(container);
+            hideResult('result-magnetic-flux');
+        }
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', function() {
+            // Настройка значений по умолчанию для углов
+            document.getElementById('ampere-angle').value = '90';
+            document.getElementById('lorentz-angle').value = '90';
+            document.getElementById('flux-angle').value = '0';
+        });
+    </script>
+</body>
+</html>
