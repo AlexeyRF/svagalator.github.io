@@ -187,6 +187,15 @@
             text-align: center;
         }
 
+        .unit-select {
+            max-width: 65px;
+            padding: 8px;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #555;
+            border-radius: 4px;
+        }
+
         .times-ten {
             color: #90a4ae;
             margin: 0 5px;
@@ -270,7 +279,7 @@
             <a href="electrodynamics.html" class="nav-btn">Электродинамика</a>
             <a href="optics.html" class="nav-btn active">Оптика</a>
             <a href="quantum.html" class="nav-btn">Квантовая физика</a>
-                        <button class="nav-btn" onclick="window.location.href='ballistics.html'">Баллистика</button>
+            <button class="nav-btn" onclick="window.location.href='ballistics.html'">Баллистика</button>
             <button class="nav-btn" onclick="window.location.href='https://alexeyrf.github.io/denlator.github.io/denlator.html'">Планеты</button>
         </div>
 
@@ -292,9 +301,15 @@
                                 </div>
                             </div>
                             <div class="variable-row">
-                                <span class="variable-label">Угол α (°):</span>
+                                <span class="variable-label">Угол α:</span>
                                 <div class="input-group">
-                                    <input type="number" class="angle-input alpha-mantissa" placeholder="градусы">
+                                    <input type="number" class="mantissa-input alpha-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input alpha-exponent" placeholder="степень" value="0"></sup>
+                                    <select class="unit-select alpha-unit">
+                                        <option value="°">град.</option>
+                                        <option value="рад">рад.</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -306,9 +321,15 @@
                                 </div>
                             </div>
                             <div class="variable-row">
-                                <span class="variable-label">Угол β (°):</span>
+                                <span class="variable-label">Угол β:</span>
                                 <div class="input-group">
-                                    <input type="number" class="angle-input beta-mantissa" placeholder="градусы">
+                                    <input type="number" class="mantissa-input beta-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input beta-exponent" placeholder="степень" value="0"></sup>
+                                    <select class="unit-select beta-unit">
+                                        <option value="°">град.</option>
+                                        <option value="рад">рад.</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -330,7 +351,12 @@
                                     <input type="number" class="mantissa-input f-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input f-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">м</span>
+                                    <select class="unit-select f-unit">
+                                        <option value="м">м</option>
+                                        <option value="см">см</option>
+                                        <option value="мм">мм</option>
+                                        <option value="км">км</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -339,7 +365,12 @@
                                     <input type="number" class="mantissa-input d-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input d-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">м</span>
+                                    <select class="unit-select d-unit">
+                                        <option value="м">м</option>
+                                        <option value="см">см</option>
+                                        <option value="мм">мм</option>
+                                        <option value="км">км</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -348,7 +379,12 @@
                                     <input type="number" class="mantissa-input f-image-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input f-image-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">м</span>
+                                    <select class="unit-select f-image-unit">
+                                        <option value="м">м</option>
+                                        <option value="см">см</option>
+                                        <option value="мм">мм</option>
+                                        <option value="км">км</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -385,7 +421,12 @@
                                     <input type="number" class="mantissa-input focal-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input focal-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">м</span>
+                                    <select class="unit-select focal-unit">
+                                        <option value="м">м</option>
+                                        <option value="см">см</option>
+                                        <option value="мм">мм</option>
+                                        <option value="км">км</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -415,7 +456,12 @@
                                     <input type="number" class="mantissa-input H-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input H-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">м</span>
+                                    <select class="unit-select H-unit">
+                                        <option value="м">м</option>
+                                        <option value="см">см</option>
+                                        <option value="мм">мм</option>
+                                        <option value="км">км</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -424,7 +470,12 @@
                                     <input type="number" class="mantissa-input h-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input h-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">м</span>
+                                    <select class="unit-select h-unit">
+                                        <option value="м">м</option>
+                                        <option value="см">см</option>
+                                        <option value="мм">мм</option>
+                                        <option value="км">км</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -433,7 +484,12 @@
                                     <input type="number" class="mantissa-input f2-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input f2-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">м</span>
+                                    <select class="unit-select f2-unit">
+                                        <option value="м">м</option>
+                                        <option value="см">см</option>
+                                        <option value="мм">мм</option>
+                                        <option value="км">км</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -442,7 +498,12 @@
                                     <input type="number" class="mantissa-input d2-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input d2-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">м</span>
+                                    <select class="unit-select d2-unit">
+                                        <option value="м">м</option>
+                                        <option value="см">см</option>
+                                        <option value="мм">мм</option>
+                                        <option value="км">км</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -470,7 +531,13 @@
                                     <input type="number" class="mantissa-input dd-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input dd-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">м</span>
+                                    <select class="unit-select dd-unit">
+                                        <option value="м">м</option>
+                                        <option value="см">см</option>
+                                        <option value="мм">мм</option>
+                                        <option value="нм">нм</option>
+                                        <option value="мкм">мкм</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -487,7 +554,14 @@
                                     <input type="number" class="mantissa-input lambda-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input lambda-exponent" placeholder="степень" value="-9"></sup>
-                                    <span class="unit">м</span>
+                                    <select class="unit-select lambda-unit">
+                                        <option value="м">м</option>
+                                        <option value="см">см</option>
+                                        <option value="мм">мм</option>
+                                        <option value="нм">нм</option>
+                                        <option value="мкм">мкм</option>
+                                        <option value="Å">Å (ангстрем)</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -509,7 +583,13 @@
                                     <input type="number" class="mantissa-input dd2-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input dd2-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">м</span>
+                                    <select class="unit-select dd2-unit">
+                                        <option value="м">м</option>
+                                        <option value="см">см</option>
+                                        <option value="мм">мм</option>
+                                        <option value="нм">нм</option>
+                                        <option value="мкм">мкм</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -526,7 +606,14 @@
                                     <input type="number" class="mantissa-input lambda2-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input lambda2-exponent" placeholder="степень" value="-9"></sup>
-                                    <span class="unit">м</span>
+                                    <select class="unit-select lambda2-unit">
+                                        <option value="м">м</option>
+                                        <option value="см">см</option>
+                                        <option value="мм">мм</option>
+                                        <option value="нм">нм</option>
+                                        <option value="мкм">мкм</option>
+                                        <option value="Å">Å (ангстрем)</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -554,13 +641,25 @@
                                     <input type="number" class="mantissa-input d-grating-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input d-grating-exponent" placeholder="степень" value="-6"></sup>
-                                    <span class="unit">м</span>
+                                    <select class="unit-select d-grating-unit">
+                                        <option value="м">м</option>
+                                        <option value="см">см</option>
+                                        <option value="мм">мм</option>
+                                        <option value="нм">нм</option>
+                                        <option value="мкм">мкм</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
-                                <span class="variable-label">Угол φ (°):</span>
+                                <span class="variable-label">Угол φ:</span>
                                 <div class="input-group">
-                                    <input type="number" class="angle-input phi-mantissa" placeholder="градусы">
+                                    <input type="number" class="mantissa-input phi-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input phi-exponent" placeholder="степень" value="0"></sup>
+                                    <select class="unit-select phi-unit">
+                                        <option value="°">град.</option>
+                                        <option value="рад">рад.</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -577,7 +676,14 @@
                                     <input type="number" class="mantissa-input lambda-grating-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input lambda-grating-exponent" placeholder="степень" value="-9"></sup>
-                                    <span class="unit">м</span>
+                                    <select class="unit-select lambda-grating-unit">
+                                        <option value="м">м</option>
+                                        <option value="см">см</option>
+                                        <option value="мм">мм</option>
+                                        <option value="нм">нм</option>
+                                        <option value="мкм">мкм</option>
+                                        <option value="Å">Å (ангстрем)</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -607,7 +713,12 @@
                                     <input type="number" class="mantissa-input v-medium-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input v-medium-exponent" placeholder="степень" value="6"></sup>
-                                    <span class="unit">м/с</span>
+                                    <select class="unit-select v-medium-unit">
+                                        <option value="м/с">м/с</option>
+                                        <option value="км/с">км/с</option>
+                                        <option value="км/ч">км/ч</option>
+                                        <option value="см/с">см/с</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -616,7 +727,12 @@
                                     <input type="number" class="mantissa-input c-mantissa" placeholder="мантисса" value="3.0">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input c-exponent" placeholder="степень" value="8"></sup>
-                                    <span class="unit">м/с</span>
+                                    <select class="unit-select c-unit">
+                                        <option value="м/с">м/с</option>
+                                        <option value="км/с">км/с</option>
+                                        <option value="км/ч">км/ч</option>
+                                        <option value="см/с">см/с</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -634,23 +750,79 @@
 
     <script>
         const c = 3.0e8; 
-        function toNumber(mantissa, exponent) {
-            return parseFloat(mantissa) * Math.pow(10, parseInt(exponent) || 0);
+        
+        const unitConversion = {
+            length: {
+                'м': 1,
+                'см': 0.01,
+                'мм': 0.001,
+                'км': 1000,
+                'нм': 1e-9,
+                'мкм': 1e-6,
+                'Å': 1e-10
+            },
+            angle: {
+                '°': Math.PI / 180,
+                'рад': 1
+            },
+            velocity: {
+                'м/с': 1,
+                'км/с': 1000,
+                'км/ч': 1/3.6,
+                'см/с': 0.01
+            }
+        };
+
+        function toNumber(mantissa, exponent, unit, type) {
+            const value = parseFloat(mantissa) * Math.pow(10, parseInt(exponent) || 0);
+            if (isNaN(value)) return NaN;
+            
+            const conversion = unitConversion[type];
+            if (conversion && conversion[unit]) {
+                return value * conversion[unit];
+            }
+            return value;
         }
 
-        function formatResult(value, unit) {
+        function fromNumber(value, unit, type) {
+            if (isNaN(value)) return NaN;
+            
+            const conversion = unitConversion[type];
+            if (conversion && conversion[unit]) {
+                return value / conversion[unit];
+            }
+            return value;
+        }
+
+        function formatResult(value, unit, type) {
             if (value === undefined || isNaN(value)) return "Ошибка вычисления";
             
-            if (Math.abs(value) >= 10000 || (Math.abs(value) < 0.001 && value !== 0)) {
-                const exponent = Math.floor(Math.log10(Math.abs(value)));
-                const mantissa = value / Math.pow(10, exponent);
+            let displayValue;
+            if (type) {
+                displayValue = fromNumber(value, unit, type);
+            } else {
+                displayValue = value;
+            }
+            
+            if (Math.abs(displayValue) >= 10000 || (Math.abs(displayValue) < 0.001 && displayValue !== 0)) {
+                const exponent = Math.floor(Math.log10(Math.abs(displayValue)));
+                const mantissa = displayValue / Math.pow(10, exponent);
                 return `${mantissa.toFixed(4)} ×10<sup>${exponent}</sup> ${unit}`;
             }
-            return `${value.toFixed(6)} ${unit}`;
+            return `${displayValue.toFixed(6)} ${unit}`;
         }
 
-        function formatAngle(value) {
-            return `${value.toFixed(4)}°`;
+        function formatAngle(value, unit) {
+            if (value === undefined || isNaN(value)) return "Ошибка вычисления";
+            
+            let displayValue;
+            if (unit === '°') {
+                displayValue = value * 180 / Math.PI;
+            } else {
+                displayValue = value;
+            }
+            
+            return `${displayValue.toFixed(4)}${unit === '°' ? '°' : ' рад'}`;
         }
 
         function showResult(elementId, message) {
@@ -672,51 +844,69 @@
             });
         }
 
-        function degreesToRadians(degrees) {
-            return degrees * Math.PI / 180;
-        }
-
-        function radiansToDegrees(radians) {
-            return radians * 180 / Math.PI;
+        function getFilledCount(values) {
+            return values.filter(val => !isNaN(val) && val !== null).length;
         }
 
         function calculateSnellsLaw() {
             const container = event.target.closest('.formula-item');
-            const n1 = toNumber(container.querySelector('.n1-mantissa').value, container.querySelector('.n1-exponent').value);
-            const alpha = parseFloat(container.querySelector('.alpha-mantissa').value);
-            const n2 = toNumber(container.querySelector('.n2-mantissa').value, container.querySelector('.n2-exponent').value);
-            const beta = parseFloat(container.querySelector('.beta-mantissa').value);
+            const n1 = toNumber(
+                container.querySelector('.n1-mantissa').value, 
+                container.querySelector('.n1-exponent').value,
+                '',
+                'length'
+            );
+            const alpha = toNumber(
+                container.querySelector('.alpha-mantissa').value, 
+                container.querySelector('.alpha-exponent').value,
+                container.querySelector('.alpha-unit').value,
+                'angle'
+            );
+            const n2 = toNumber(
+                container.querySelector('.n2-mantissa').value, 
+                container.querySelector('.n2-exponent').value,
+                '',
+                'length'
+            );
+            const beta = toNumber(
+                container.querySelector('.beta-mantissa').value, 
+                container.querySelector('.beta-exponent').value,
+                container.querySelector('.beta-unit').value,
+                'angle'
+            );
             
             let result, message;
             
             if (!isNaN(n1) && !isNaN(alpha) && !isNaN(n2) && isNaN(beta)) {
-                const sinAlpha = Math.sin(degreesToRadians(alpha));
+                const sinAlpha = Math.sin(alpha);
                 const sinBeta = (n1 * sinAlpha) / n2;
                 if (Math.abs(sinBeta) <= 1) {
-                    result = radiansToDegrees(Math.asin(sinBeta));
-                    message = `Угол β = ${formatAngle(result)}`;
+                    result = Math.asin(sinBeta);
+                    const unit = container.querySelector('.beta-unit').value;
+                    message = `Угол β = ${formatAngle(result, unit)}`;
                 } else {
                     message = "Полное внутреннее отражение! sinβ > 1";
                 }
             } else if (!isNaN(n1) && !isNaN(alpha) && isNaN(n2) && !isNaN(beta)) {
-                const sinAlpha = Math.sin(degreesToRadians(alpha));
-                const sinBeta = Math.sin(degreesToRadians(beta));
+                const sinAlpha = Math.sin(alpha);
+                const sinBeta = Math.sin(beta);
                 result = (n1 * sinAlpha) / sinBeta;
-                message = `Показатель преломления n₂ = ${formatResult(result, '')}`;
+                message = `Показатель преломления n₂ = ${formatResult(result, '', 'length')}`;
             } else if (!isNaN(n1) && isNaN(alpha) && !isNaN(n2) && !isNaN(beta)) {
-                const sinBeta = Math.sin(degreesToRadians(beta));
+                const sinBeta = Math.sin(beta);
                 const sinAlpha = (n2 * sinBeta) / n1;
                 if (Math.abs(sinAlpha) <= 1) {
-                    result = radiansToDegrees(Math.asin(sinAlpha));
-                    message = `Угол α = ${formatAngle(result)}`;
+                    result = Math.asin(sinAlpha);
+                    const unit = container.querySelector('.alpha-unit').value;
+                    message = `Угол α = ${formatAngle(result, unit)}`;
                 } else {
                     message = "Ошибка: sinα > 1";
                 }
             } else if (isNaN(n1) && !isNaN(alpha) && !isNaN(n2) && !isNaN(beta)) {
-                const sinAlpha = Math.sin(degreesToRadians(alpha));
-                const sinBeta = Math.sin(degreesToRadians(beta));
+                const sinAlpha = Math.sin(alpha);
+                const sinBeta = Math.sin(beta);
                 result = (n2 * sinBeta) / sinAlpha;
-                message = `Показатель преломления n₁ = ${formatResult(result, '')}`;
+                message = `Показатель преломления n₁ = ${formatResult(result, '', 'length')}`;
             } else {
                 message = "Введите значения для любых трёх величин";
             }
@@ -732,24 +922,39 @@
 
         function calculateLensFormula() {
             const container = event.target.closest('.formula-item');
-            const F = toNumber(container.querySelector('.f-mantissa').value, container.querySelector('.f-exponent').value);
-            const d = toNumber(container.querySelector('.d-mantissa').value, container.querySelector('.d-exponent').value);
-            const f = toNumber(container.querySelector('.f-image-mantissa').value, container.querySelector('.f-image-exponent').value);
+            const F = toNumber(
+                container.querySelector('.f-mantissa').value, 
+                container.querySelector('.f-exponent').value,
+                container.querySelector('.f-unit').value,
+                'length'
+            );
+            const d = toNumber(
+                container.querySelector('.d-mantissa').value, 
+                container.querySelector('.d-exponent').value,
+                container.querySelector('.d-unit').value,
+                'length'
+            );
+            const f = toNumber(
+                container.querySelector('.f-image-mantissa').value, 
+                container.querySelector('.f-image-exponent').value,
+                container.querySelector('.f-image-unit').value,
+                'length'
+            );
             
             let result, unit, message;
             
             if (!isNaN(F) && !isNaN(d) && isNaN(f)) {
                 result = 1 / (1/F - 1/d);
-                unit = "м";
-                message = `Расстояние до изображения f = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.f-image-unit').value;
+                message = `Расстояние до изображения f = ${formatResult(result, unit, 'length')}`;
             } else if (!isNaN(F) && isNaN(d) && !isNaN(f)) {
                 result = 1 / (1/F - 1/f);
-                unit = "м";
-                message = `Расстояние до предмета d = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.d-unit').value;
+                message = `Расстояние до предмета d = ${formatResult(result, unit, 'length')}`;
             } else if (isNaN(F) && !isNaN(d) && !isNaN(f)) {
                 result = 1 / (1/d + 1/f);
-                unit = "м";
-                message = `Фокусное расстояние F = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.f-unit').value;
+                message = `Фокусное расстояние F = ${formatResult(result, unit, 'length')}`;
             } else {
                 message = "Введите значения для любых двух величин";
             }
@@ -765,19 +970,29 @@
 
         function calculateOpticalPower() {
             const container = event.target.closest('.formula-item');
-            const D = toNumber(container.querySelector('.d-power-mantissa').value, container.querySelector('.d-power-exponent').value);
-            const F = toNumber(container.querySelector('.focal-mantissa').value, container.querySelector('.focal-exponent').value);
+            const D = toNumber(
+                container.querySelector('.d-power-mantissa').value, 
+                container.querySelector('.d-power-exponent').value,
+                '',
+                'length'
+            );
+            const F = toNumber(
+                container.querySelector('.focal-mantissa').value, 
+                container.querySelector('.focal-exponent').value,
+                container.querySelector('.focal-unit').value,
+                'length'
+            );
             
             let result, unit, message;
             
             if (!isNaN(D) && isNaN(F)) {
                 result = 1 / D;
-                unit = "м";
-                message = `Фокусное расстояние F = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.focal-unit').value;
+                message = `Фокусное расстояние F = ${formatResult(result, unit, 'length')}`;
             } else if (isNaN(D) && !isNaN(F)) {
                 result = 1 / F;
                 unit = "дптр";
-                message = `Оптическая сила D = ${formatResult(result, unit)}`;
+                message = `Оптическая сила D = ${formatResult(result, unit, 'length')}`;
             } else {
                 message = "Введите значение одной из величин";
             }
@@ -793,36 +1008,61 @@
 
         function calculateMagnification() {
             const container = event.target.closest('.formula-item');
-            const gamma = toNumber(container.querySelector('.gamma-mantissa').value, container.querySelector('.gamma-exponent').value);
-            const H = toNumber(container.querySelector('.H-mantissa').value, container.querySelector('.H-exponent').value);
-            const h = toNumber(container.querySelector('.h-mantissa').value, container.querySelector('.h-exponent').value);
-            const f = toNumber(container.querySelector('.f2-mantissa').value, container.querySelector('.f2-exponent').value);
-            const d = toNumber(container.querySelector('.d2-mantissa').value, container.querySelector('.d2-exponent').value);
+            const gamma = toNumber(
+                container.querySelector('.gamma-mantissa').value, 
+                container.querySelector('.gamma-exponent').value,
+                '',
+                'length'
+            );
+            const H = toNumber(
+                container.querySelector('.H-mantissa').value, 
+                container.querySelector('.H-exponent').value,
+                container.querySelector('.H-unit').value,
+                'length'
+            );
+            const h = toNumber(
+                container.querySelector('.h-mantissa').value, 
+                container.querySelector('.h-exponent').value,
+                container.querySelector('.h-unit').value,
+                'length'
+            );
+            const f = toNumber(
+                container.querySelector('.f2-mantissa').value, 
+                container.querySelector('.f2-exponent').value,
+                container.querySelector('.f2-unit').value,
+                'length'
+            );
+            const d = toNumber(
+                container.querySelector('.d2-mantissa').value, 
+                container.querySelector('.d2-exponent').value,
+                container.querySelector('.d2-unit').value,
+                'length'
+            );
             
             let result, unit, message;
             
             if (!isNaN(H) && !isNaN(h) && isNaN(gamma)) {
                 result = H / h;
-                message = `Увеличение Γ = ${formatResult(result, '')}`;
+                message = `Увеличение Γ = ${formatResult(result, '', 'length')}`;
             } else if (!isNaN(gamma) && !isNaN(h) && isNaN(H)) {
                 result = gamma * h;
-                unit = "м";
-                message = `Высота изображения H = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.H-unit').value;
+                message = `Высота изображения H = ${formatResult(result, unit, 'length')}`;
             } else if (!isNaN(gamma) && !isNaN(H) && isNaN(h)) {
                 result = H / gamma;
-                unit = "м";
-                message = `Высота предмета h = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.h-unit').value;
+                message = `Высота предмета h = ${formatResult(result, unit, 'length')}`;
             } else if (!isNaN(f) && !isNaN(d) && isNaN(gamma)) {
                 result = f / d;
-                message = `Увеличение Γ = ${formatResult(result, '')}`;
+                message = `Увеличение Γ = ${formatResult(result, '', 'length')}`;
             } else if (!isNaN(gamma) && !isNaN(d) && isNaN(f)) {
                 result = gamma * d;
-                unit = "м";
-                message = `Расстояние до изображения f = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.f2-unit').value;
+                message = `Расстояние до изображения f = ${formatResult(result, unit, 'length')}`;
             } else if (!isNaN(gamma) && !isNaN(f) && isNaN(d)) {
                 result = f / gamma;
-                unit = "м";
-                message = `Расстояние до предмета d = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.d2-unit').value;
+                message = `Расстояние до предмета d = ${formatResult(result, unit, 'length')}`;
             } else {
                 message = "Введите значения для вычисления одной из неизвестных величин";
             }
@@ -838,23 +1078,38 @@
 
         function calculateInterferenceMax() {
             const container = event.target.closest('.formula-item');
-            const dd = toNumber(container.querySelector('.dd-mantissa').value, container.querySelector('.dd-exponent').value);
-            const k = toNumber(container.querySelector('.k-mantissa').value, container.querySelector('.k-exponent').value);
-            const lambda = toNumber(container.querySelector('.lambda-mantissa').value, container.querySelector('.lambda-exponent').value);
+            const dd = toNumber(
+                container.querySelector('.dd-mantissa').value, 
+                container.querySelector('.dd-exponent').value,
+                container.querySelector('.dd-unit').value,
+                'length'
+            );
+            const k = toNumber(
+                container.querySelector('.k-mantissa').value, 
+                container.querySelector('.k-exponent').value,
+                '',
+                'length'
+            );
+            const lambda = toNumber(
+                container.querySelector('.lambda-mantissa').value, 
+                container.querySelector('.lambda-exponent').value,
+                container.querySelector('.lambda-unit').value,
+                'length'
+            );
             
             let result, unit, message;
             
             if (!isNaN(dd) && !isNaN(k) && isNaN(lambda)) {
                 result = dd / k;
-                unit = "м";
-                message = `Длина волны λ = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.lambda-unit').value;
+                message = `Длина волны λ = ${formatResult(result, unit, 'length')}`;
             } else if (!isNaN(dd) && isNaN(k) && !isNaN(lambda)) {
                 result = dd / lambda;
-                message = `Порядок максимума k = ${formatResult(result, '')}`;
+                message = `Порядок максимума k = ${formatResult(result, '', 'length')}`;
             } else if (isNaN(dd) && !isNaN(k) && !isNaN(lambda)) {
                 result = k * lambda;
-                unit = "м";
-                message = `Разность хода Δd = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.dd-unit').value;
+                message = `Разность хода Δd = ${formatResult(result, unit, 'length')}`;
             } else {
                 message = "Введите значения для любых двух величин";
             }
@@ -870,23 +1125,38 @@
 
         function calculateInterferenceMin() {
             const container = event.target.closest('.formula-item');
-            const dd = toNumber(container.querySelector('.dd2-mantissa').value, container.querySelector('.dd2-exponent').value);
-            const k = toNumber(container.querySelector('.k2-mantissa').value, container.querySelector('.k2-exponent').value);
-            const lambda = toNumber(container.querySelector('.lambda2-mantissa').value, container.querySelector('.lambda2-exponent').value);
+            const dd = toNumber(
+                container.querySelector('.dd2-mantissa').value, 
+                container.querySelector('.dd2-exponent').value,
+                container.querySelector('.dd2-unit').value,
+                'length'
+            );
+            const k = toNumber(
+                container.querySelector('.k2-mantissa').value, 
+                container.querySelector('.k2-exponent').value,
+                '',
+                'length'
+            );
+            const lambda = toNumber(
+                container.querySelector('.lambda2-mantissa').value, 
+                container.querySelector('.lambda2-exponent').value,
+                container.querySelector('.lambda2-unit').value,
+                'length'
+            );
             
             let result, unit, message;
             
             if (!isNaN(dd) && !isNaN(k) && isNaN(lambda)) {
                 result = (2 * dd) / (2 * k + 1);
-                unit = "м";
-                message = `Длина волны λ = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.lambda2-unit').value;
+                message = `Длина волны λ = ${formatResult(result, unit, 'length')}`;
             } else if (!isNaN(dd) && isNaN(k) && !isNaN(lambda)) {
                 result = (dd / lambda - 0.5);
-                message = `Порядок минимума k = ${formatResult(Math.floor(result), '')}`;
+                message = `Порядок минимума k = ${formatResult(Math.floor(result), '', 'length')}`;
             } else if (isNaN(dd) && !isNaN(k) && !isNaN(lambda)) {
                 result = (2 * k + 1) * lambda / 2;
-                unit = "м";
-                message = `Разность хода Δd = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.dd2-unit').value;
+                message = `Разность хода Δd = ${formatResult(result, unit, 'length')}`;
             } else {
                 message = "Введите значения для любых двух величин";
             }
@@ -902,35 +1172,56 @@
 
         function calculateDiffractionGrating() {
             const container = event.target.closest('.formula-item');
-            const d = toNumber(container.querySelector('.d-grating-mantissa').value, container.querySelector('.d-grating-exponent').value);
-            const phi = parseFloat(container.querySelector('.phi-mantissa').value);
-            const k = toNumber(container.querySelector('.k-grating-mantissa').value, container.querySelector('.k-grating-exponent').value);
-            const lambda = toNumber(container.querySelector('.lambda-grating-mantissa').value, container.querySelector('.lambda-grating-exponent').value);
+            const d = toNumber(
+                container.querySelector('.d-grating-mantissa').value, 
+                container.querySelector('.d-grating-exponent').value,
+                container.querySelector('.d-grating-unit').value,
+                'length'
+            );
+            const phi = toNumber(
+                container.querySelector('.phi-mantissa').value, 
+                container.querySelector('.phi-exponent').value,
+                container.querySelector('.phi-unit').value,
+                'angle'
+            );
+            const k = toNumber(
+                container.querySelector('.k-grating-mantissa').value, 
+                container.querySelector('.k-grating-exponent').value,
+                '',
+                'length'
+            );
+            const lambda = toNumber(
+                container.querySelector('.lambda-grating-mantissa').value, 
+                container.querySelector('.lambda-grating-exponent').value,
+                container.querySelector('.lambda-grating-unit').value,
+                'length'
+            );
             
             let result, unit, message;
             
             if (!isNaN(d) && !isNaN(phi) && !isNaN(k) && isNaN(lambda)) {
-                const sinPhi = Math.sin(degreesToRadians(phi));
+                const sinPhi = Math.sin(phi);
                 result = (d * sinPhi) / k;
-                unit = "м";
-                message = `Длина волны λ = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.lambda-grating-unit').value;
+                message = `Длина волны λ = ${formatResult(result, unit, 'length')}`;
             } else if (!isNaN(d) && !isNaN(phi) && isNaN(k) && !isNaN(lambda)) {
-                const sinPhi = Math.sin(degreesToRadians(phi));
+                const sinPhi = Math.sin(phi);
                 result = (d * sinPhi) / lambda;
-                message = `Порядок спектра k = ${formatResult(Math.round(result), '')}`;
+                message = `Порядок спектра k = ${formatResult(Math.round(result), '', 'length')}`;
             } else if (!isNaN(d) && isNaN(phi) && !isNaN(k) && !isNaN(lambda)) {
                 const sinPhi = (k * lambda) / d;
                 if (Math.abs(sinPhi) <= 1) {
-                    result = radiansToDegrees(Math.asin(sinPhi));
-                    message = `Угол φ = ${formatAngle(result)}`;
+                    result = Math.asin(sinPhi);
+                    const unit = container.querySelector('.phi-unit').value;
+                    message = `Угол φ = ${formatAngle(result, unit)}`;
                 } else {
                     message = "Невозможно: |sinφ| > 1";
                 }
             } else if (isNaN(d) && !isNaN(phi) && !isNaN(k) && !isNaN(lambda)) {
-                const sinPhi = Math.sin(degreesToRadians(phi));
+                const sinPhi = Math.sin(phi);
                 result = (k * lambda) / sinPhi;
-                unit = "м";
-                message = `Период решётки d = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.d-grating-unit').value;
+                message = `Период решётки d = ${formatResult(result, unit, 'length')}`;
             } else {
                 message = "Введите значения для любых трёх величин";
             }
@@ -946,21 +1237,38 @@
 
         function calculateRefractiveIndex() {
             const container = event.target.closest('.formula-item');
-            const n = toNumber(container.querySelector('.n-abs-mantissa').value, container.querySelector('.n-abs-exponent').value);
-            const v = toNumber(container.querySelector('.v-medium-mantissa').value, container.querySelector('.v-medium-exponent').value);
-            const c = toNumber(container.querySelector('.c-mantissa').value, container.querySelector('.c-exponent').value);
+            const n = toNumber(
+                container.querySelector('.n-abs-mantissa').value, 
+                container.querySelector('.n-abs-exponent').value,
+                '',
+                'length'
+            );
+            const v = toNumber(
+                container.querySelector('.v-medium-mantissa').value, 
+                container.querySelector('.v-medium-exponent').value,
+                container.querySelector('.v-medium-unit').value,
+                'velocity'
+            );
+            const c = toNumber(
+                container.querySelector('.c-mantissa').value, 
+                container.querySelector('.c-exponent').value,
+                container.querySelector('.c-unit').value,
+                'velocity'
+            );
             
             let result, message;
             
             if (!isNaN(n) && !isNaN(v) && isNaN(c)) {
                 result = n * v;
-                message = `Скорость света в вакууме c = ${formatResult(result, 'м/с')}`;
+                const unit = container.querySelector('.c-unit').value;
+                message = `Скорость света в вакууме c = ${formatResult(result, unit, 'velocity')}`;
             } else if (!isNaN(n) && isNaN(v) && !isNaN(c)) {
                 result = c / n;
-                message = `Скорость света в среде v = ${formatResult(result, 'м/с')}`;
+                const unit = container.querySelector('.v-medium-unit').value;
+                message = `Скорость света в среде v = ${formatResult(result, unit, 'velocity')}`;
             } else if (isNaN(n) && !isNaN(v) && !isNaN(c)) {
                 result = c / v;
-                message = `Абсолютный показатель преломления n = ${formatResult(result, '')}`;
+                message = `Абсолютный показатель преломления n = ${formatResult(result, '', 'length')}`;
             } else {
                 message = "Введите значения для любых двух величин";
             }
@@ -987,7 +1295,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
