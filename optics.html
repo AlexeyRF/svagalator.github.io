@@ -264,11 +264,6 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>🔦 Физический калькулятор: Оптика</h1>
-            <p class="subtitle">Введите известные значения и вычислите неизвестные величины</p>
-        </header>
-
         <div class="nav-buttons">
             <a href="mechanics.html" class="nav-btn">Механика</a>
             <a href="molecular.html" class="nav-btn">Молекулярная физика</a>
@@ -278,9 +273,8 @@
         </div>
 
         <div class="content">
-            <!-- Геометрическая оптика -->
             <div class="formula-section">
-                <h2 class="section-title">📐 Геометрическая оптика</h2>
+                <h2 class="section-title">Геометрическая оптика</h2>
                 
                 <div class="formula-group">
                     <div class="formula-item">
@@ -366,9 +360,8 @@
                 </div>
             </div>
 
-            <!-- Оптические характеристики -->
             <div class="formula-section">
-                <h2 class="section-title">📊 Оптические характеристики</h2>
+                <h2 class="section-title">Оптические характеристики</h2>
                 
                 <div class="formula-group">
                     <div class="formula-item">
@@ -461,9 +454,8 @@
                 </div>
             </div>
 
-            <!-- Волновая оптика -->
             <div class="formula-section">
-                <h2 class="section-title">🌊 Волновая оптика</h2>
+                <h2 class="section-title">Волновая оптика</h2>
                 
                 <div class="formula-group">
                     <div class="formula-item">
@@ -546,9 +538,8 @@
                 </div>
             </div>
 
-            <!-- Дифракция -->
             <div class="formula-section">
-                <h2 class="section-title">🌀 Дифракция</h2>
+                <h2 class="section-title">Дифракция</h2>
                 
                 <div class="formula-group">
                     <div class="formula-item">
@@ -640,10 +631,7 @@
     </div>
 
     <script>
-        // Константы
-        const c = 3.0e8; // скорость света в вакууме, м/с
-
-        // Утилиты для преобразования чисел
+        const c = 3.0e8; 
         function toNumber(mantissa, exponent) {
             return parseFloat(mantissa) * Math.pow(10, parseInt(exponent) || 0);
         }
@@ -690,7 +678,6 @@
             return radians * 180 / Math.PI;
         }
 
-        // Функции для геометрической оптики
         function calculateSnellsLaw() {
             const container = event.target.closest('.formula-item');
             const n1 = toNumber(container.querySelector('.n1-mantissa').value, container.querySelector('.n1-exponent').value);
@@ -774,7 +761,6 @@
             hideResult('result-lens-formula');
         }
 
-        // Функции для оптических характеристик
         function calculateOpticalPower() {
             const container = event.target.closest('.formula-item');
             const D = toNumber(container.querySelector('.d-power-mantissa').value, container.querySelector('.d-power-exponent').value);
@@ -813,7 +799,6 @@
             
             let result, unit, message;
             
-            // Проверяем, какая формула используется
             if (!isNaN(H) && !isNaN(h) && isNaN(gamma)) {
                 result = H / h;
                 message = `Увеличение Γ = ${formatResult(result, '')}`;
@@ -849,7 +834,6 @@
             hideResult('result-magnification');
         }
 
-        // Функции для волновой оптики
         function calculateInterferenceMax() {
             const container = event.target.closest('.formula-item');
             const dd = toNumber(container.querySelector('.dd-mantissa').value, container.querySelector('.dd-exponent').value);
@@ -914,7 +898,6 @@
             hideResult('result-interference-min');
         }
 
-        // Функции для дифракции
         function calculateDiffractionGrating() {
             const container = event.target.closest('.formula-item');
             const d = toNumber(container.querySelector('.d-grating-mantissa').value, container.querySelector('.d-grating-exponent').value);
@@ -989,9 +972,7 @@
             hideResult('result-refractive-index');
         }
 
-        // Инициализация
         document.addEventListener('DOMContentLoaded', function() {
-            // Установка значений по умолчанию
             const n1Inputs = document.querySelectorAll('.n1-mantissa');
             n1Inputs.forEach(input => {
                 if (input.value === '') input.value = '1.0';
@@ -1004,4 +985,5 @@
         });
     </script>
 </body>
+
 </html>
