@@ -333,7 +333,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="calculate-btn" onclick="calculateCoulombsLaw()">Вычислить</button>
+                        <button class="calculate-btn" onclick="calculateCoulombsLaw(event)">Вычислить</button>
                         <button class="calculate-btn clear-btn" onclick="clearCoulombsLaw()">Очистить</button>
                         <div class="result-container" id="result-coulombs-law">
                             <div class="result-title">Результат:</div>
@@ -374,7 +374,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="calculate-btn" onclick="calculateElectricField()">Вычислить</button>
+                        <button class="calculate-btn" onclick="calculateElectricField(event)">Вычислить</button>
                         <button class="calculate-btn clear-btn" onclick="clearElectricField()">Очистить</button>
                         <div class="result-container" id="result-electric-field">
                             <div class="result-title">Результат:</div>
@@ -423,7 +423,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="calculate-btn" onclick="calculateCapacitorEnergy()">Вычислить</button>
+                        <button class="calculate-btn" onclick="calculateCapacitorEnergy(event)">Вычислить</button>
                         <button class="calculate-btn clear-btn" onclick="clearCapacitorEnergy()">Очистить</button>
                         <div class="result-container" id="result-capacitor-energy">
                             <div class="result-title">Результат:</div>
@@ -469,7 +469,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="calculate-btn" onclick="calculateOhmsLaw()">Вычислить</button>
+                        <button class="calculate-btn" onclick="calculateOhmsLaw(event)">Вычислить</button>
                         <button class="calculate-btn clear-btn" onclick="clearOhmsLaw()">Очистить</button>
                         <div class="result-container" id="result-ohms-law">
                             <div class="result-title">Результат:</div>
@@ -518,7 +518,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="calculate-btn" onclick="calculateOhmsLawFull()">Вычислить</button>
+                        <button class="calculate-btn" onclick="calculateOhmsLawFull(event)">Вычислить</button>
                         <button class="calculate-btn clear-btn" onclick="clearOhmsLawFull()">Очистить</button>
                         <div class="result-container" id="result-ohms-law-full">
                             <div class="result-title">Результат:</div>
@@ -567,7 +567,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="calculate-btn" onclick="calculatePower()">Вычислить</button>
+                        <button class="calculate-btn" onclick="calculatePower(event)">Вычислить</button>
                         <button class="calculate-btn clear-btn" onclick="clearPower()">Очистить</button>
                         <div class="result-container" id="result-power">
                             <div class="result-title">Результат:</div>
@@ -629,7 +629,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="calculate-btn" onclick="calculateAmpereForce()">Вычислить</button>
+                        <button class="calculate-btn" onclick="calculateAmpereForce(event)">Вычислить</button>
                         <button class="calculate-btn clear-btn" onclick="clearAmpereForce()">Очистить</button>
                         <div class="result-container" id="result-ampere-force">
                             <div class="result-title">Результат:</div>
@@ -685,7 +685,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="calculate-btn" onclick="calculateLorentzForce()">Вычислить</button>
+                        <button class="calculate-btn" onclick="calculateLorentzForce(event)">Вычислить</button>
                         <button class="calculate-btn clear-btn" onclick="clearLorentzForce()">Очистить</button>
                         <div class="result-container" id="result-lorentz-force">
                             <div class="result-title">Результат:</div>
@@ -725,7 +725,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="calculate-btn" onclick="calculateFaradayLaw()">Вычислить</button>
+                        <button class="calculate-btn" onclick="calculateFaradayLaw(event)">Вычислить</button>
                         <button class="calculate-btn clear-btn" onclick="clearFaradayLaw()">Очистить</button>
                         <div class="result-container" id="result-faraday-law">
                             <div class="result-title">Результат:</div>
@@ -772,7 +772,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="calculate-btn" onclick="calculateMagneticFlux()">Вычислить</button>
+                        <button class="calculate-btn" onclick="calculateMagneticFlux(event)">Вычислить</button>
                         <button class="calculate-btn clear-btn" onclick="clearMagneticFlux()">Очистить</button>
                         <div class="result-container" id="result-magnetic-flux">
                             <div class="result-title">Результат:</div>
@@ -787,6 +787,7 @@
     <script>
         const k = 9.0e9; 
         const e = 1.602176634e-19;
+        
         function toNumber(mantissa, exponent) {
             const mantissaValue = parseFloat(mantissa);
             const exponentValue = parseInt(exponent) || 0;
@@ -796,7 +797,7 @@
 
         function formatResult(value, unit) {
             if (value === 0) return `0 ${unit}`;
-            if (Math.abs(value) >= 10000 || (Math.abs(value) < 0.001 && value !== 0)) {
+            if (Math.abs(value) >= 10000 || (Math.abs(value) < 0.001 && Math.abs(value) > 1e-30)) {
                 const exponent = Math.floor(Math.log10(Math.abs(value)));
                 const mantissa = value / Math.pow(10, exponent);
                 return `${mantissa.toFixed(4)} ×10<sup>${exponent}</sup> ${unit}`;
@@ -831,7 +832,7 @@
             return degrees * Math.PI / 180;
         }
 
-        function calculateCoulombsLaw() {
+        function calculateCoulombsLaw(event) {
             const container = event.target.closest('.formula-item');
             const f = toNumber(container.querySelector('.f-mantissa').value, container.querySelector('.f-exponent').value);
             const q1 = toNumber(container.querySelector('.q1-mantissa').value, container.querySelector('.q1-exponent').value);
@@ -848,25 +849,26 @@
                 if (isNaN(f)) {
                     result = k * Math.abs(q1 * q2) / (r * r);
                     unit = "Н";
-                    message = `Сила F = ${formatResult(result, unit)}`;
+                    const sign = (q1 * q2) > 0 ? "отталкивание" : "притяжение";
+                    message = `Сила F = ${formatResult(result, unit)} (${sign})`;
                 } else if (isNaN(q1)) {
-                    if (q2 === 0) {
+                    if (Math.abs(q2) < 1e-30) {
                         message = "Заряд q₂ не может быть нулевым";
                     } else {
-                        result = Math.sqrt(Math.abs(f * r * r / (k * q2)));
+                        result = Math.abs(f * r * r) / (k * Math.abs(q2));
                         unit = "Кл";
                         message = `Заряд q₁ = ${formatResult(result, unit)}`;
                     }
                 } else if (isNaN(q2)) {
-                    if (q1 === 0) {
+                    if (Math.abs(q1) < 1e-30) {
                         message = "Заряд q₁ не может быть нулевым";
                     } else {
-                        result = Math.sqrt(Math.abs(f * r * r / (k * q1)));
+                        result = Math.abs(f * r * r) / (k * Math.abs(q1));
                         unit = "Кл";
                         message = `Заряд q₂ = ${formatResult(result, unit)}`;
                     }
                 } else if (isNaN(r)) {
-                    if (f === 0) {
+                    if (Math.abs(f) < 1e-30) {
                         message = "Сила F не может быть нулевой";
                     } else {
                         result = Math.sqrt(Math.abs(k * q1 * q2 / f));
@@ -885,7 +887,7 @@
             hideResult('result-coulombs-law');
         }
 
-        function calculateElectricField() {
+        function calculateElectricField(event) {
             const container = event.target.closest('.formula-item');
             const eField = toNumber(container.querySelector('.e-mantissa').value, container.querySelector('.e-exponent').value);
             const q = toNumber(container.querySelector('.q-mantissa').value, container.querySelector('.q-exponent').value);
@@ -898,13 +900,17 @@
                 unit = "Н/Кл";
                 message = `Напряжённость E = ${formatResult(result, unit)}`;
             } else if (!isNaN(eField) && !isNaN(r)) {
-                result = eField * r * r / k;
+                result = Math.abs(eField) * r * r / k;
                 unit = "Кл";
-                message = `Заряд q = ${formatResult(result, unit)}`;
+                message = `Заряд |q| = ${formatResult(result, unit)}`;
             } else if (!isNaN(eField) && !isNaN(q)) {
-                result = Math.sqrt(k * Math.abs(q) / eField);
-                unit = "м";
-                message = `Расстояние r = ${formatResult(result, unit)}`;
+                if (Math.abs(eField) < 1e-30) {
+                    message = "Напряжённость E не может быть нулевой";
+                } else {
+                    result = Math.sqrt(k * Math.abs(q) / Math.abs(eField));
+                    unit = "м";
+                    message = `Расстояние r = ${formatResult(result, unit)}`;
+                }
             } else {
                 message = "Введите значения для любых двух величин";
             }
@@ -918,7 +924,7 @@
             hideResult('result-electric-field');
         }
 
-        function calculateCapacitorEnergy() {
+        function calculateCapacitorEnergy(event) {
             const container = event.target.closest('.formula-item');
             const w = toNumber(container.querySelector('.w-mantissa').value, container.querySelector('.w-exponent').value);
             const c = toNumber(container.querySelector('.c-mantissa').value, container.querySelector('.c-exponent').value);
@@ -980,7 +986,7 @@
             hideResult('result-capacitor-energy');
         }
 
-        function calculateOhmsLaw() {
+        function calculateOhmsLaw(event) {
             const container = event.target.closest('.formula-item');
             const i = toNumber(container.querySelector('.i-mantissa').value, container.querySelector('.i-exponent').value);
             const u = toNumber(container.querySelector('.u-mantissa').value, container.querySelector('.u-exponent').value);
@@ -989,17 +995,25 @@
             let result, unit, message;
             
             if (!isNaN(u) && !isNaN(r)) {
-                result = u / r;
-                unit = "А";
-                message = `Сила тока I = ${formatResult(result, unit)}`;
+                if (Math.abs(r) < 1e-30) {
+                    message = "Сопротивление R не может быть нулевым";
+                } else {
+                    result = u / r;
+                    unit = "А";
+                    message = `Сила тока I = ${formatResult(result, unit)}`;
+                }
             } else if (!isNaN(i) && !isNaN(r)) {
                 result = i * r;
                 unit = "В";
                 message = `Напряжение U = ${formatResult(result, unit)}`;
             } else if (!isNaN(i) && !isNaN(u)) {
-                result = u / i;
-                unit = "Ом";
-                message = `Сопротивление R = ${formatResult(result, unit)}`;
+                if (Math.abs(i) < 1e-30) {
+                    message = "Сила тока I не может быть нулевой";
+                } else {
+                    result = u / i;
+                    unit = "Ом";
+                    message = `Сопротивление R = ${formatResult(result, unit)}`;
+                }
             } else {
                 message = "Введите значения для любых двух величин";
             }
@@ -1013,7 +1027,7 @@
             hideResult('result-ohms-law');
         }
 
-        function calculateOhmsLawFull() {
+        function calculateOhmsLawFull(event) {
             const container = event.target.closest('.formula-item');
             const i = toNumber(container.querySelector('.i-mantissa').value, container.querySelector('.i-exponent').value);
             const emf = toNumber(container.querySelector('.emf-mantissa').value, container.querySelector('.emf-exponent').value);
@@ -1028,21 +1042,33 @@
                 message = "Введите значения для любых трёх величин";
             } else {
                 if (isNaN(i)) {
-                    result = emf / (r + ri);
-                    unit = "А";
-                    message = `Сила тока I = ${formatResult(result, unit)}`;
+                    if (Math.abs(r + ri) < 1e-30) {
+                        message = "Сумма сопротивлений (R + r) не может быть нулевой";
+                    } else {
+                        result = emf / (r + ri);
+                        unit = "А";
+                        message = `Сила тока I = ${formatResult(result, unit)}`;
+                    }
                 } else if (isNaN(emf)) {
                     result = i * (r + ri);
                     unit = "В";
                     message = `ЭДС ℰ = ${formatResult(result, unit)}`;
                 } else if (isNaN(r)) {
-                    result = emf / i - ri;
-                    unit = "Ом";
-                    message = `Сопротивление R = ${formatResult(result, unit)}`;
+                    if (Math.abs(i) < 1e-30) {
+                        message = "Сила тока I не может быть нулевой";
+                    } else {
+                        result = emf / i - ri;
+                        unit = "Ом";
+                        message = `Сопротивление R = ${formatResult(result, unit)}`;
+                    }
                 } else if (isNaN(ri)) {
-                    result = emf / i - r;
-                    unit = "Ом";
-                    message = `Внутр. сопротивление r = ${formatResult(result, unit)}`;
+                    if (Math.abs(i) < 1e-30) {
+                        message = "Сила тока I не может быть нулевой";
+                    } else {
+                        result = emf / i - r;
+                        unit = "Ом";
+                        message = `Внутр. сопротивление r = ${formatResult(result, unit)}`;
+                    }
                 }
             }
             
@@ -1055,7 +1081,7 @@
             hideResult('result-ohms-law-full');
         }
 
-        function calculatePower() {
+        function calculatePower(event) {
             const container = event.target.closest('.formula-item');
             const p = toNumber(container.querySelector('.p-mantissa').value, container.querySelector('.p-exponent').value);
             const i = toNumber(container.querySelector('.i-mantissa').value, container.querySelector('.i-exponent').value);
@@ -1079,7 +1105,9 @@
                     result = known.i * known.u;
                     unit = "Вт";
                     message = `Мощность P = ${formatResult(result, unit)}<br>`;
-                    message += `Сопротивление R = ${formatResult(known.u / known.i, 'Ом')}`;
+                    if (Math.abs(known.i) > 1e-30) {
+                        message += `Сопротивление R = ${formatResult(known.u / known.i, 'Ом')}`;
+                    }
                 }
                 else if (known.i !== undefined && known.r !== undefined) {
                     result = known.i * known.i * known.r;
@@ -1088,29 +1116,45 @@
                     message += `Напряжение U = ${formatResult(known.i * known.r, 'В')}`;
                 }
                 else if (known.u !== undefined && known.r !== undefined) {
-                    result = known.u * known.u / known.r;
-                    unit = "Вт";
-                    message = `Мощность P = ${formatResult(result, unit)}<br>`;
-                    message += `Сила тока I = ${formatResult(known.u / known.r, 'А')}`;
+                    if (Math.abs(known.r) < 1e-30) {
+                        message = "Сопротивление R не может быть нулевым";
+                    } else {
+                        result = known.u * known.u / known.r;
+                        unit = "Вт";
+                        message = `Мощность P = ${formatResult(result, unit)}<br>`;
+                        message += `Сила тока I = ${formatResult(known.u / known.r, 'А')}`;
+                    }
                 }
                 else if (known.p !== undefined && known.i !== undefined) {
-                    result = known.p / known.i;
-                    unit = "В";
-                    message = `Напряжение U = ${formatResult(result, unit)}<br>`;
-                    message += `Сопротивление R = ${formatResult(known.p / (known.i * known.i), 'Ом')}`;
+                    if (Math.abs(known.i) < 1e-30) {
+                        message = "Сила тока I не может быть нулевой";
+                    } else {
+                        result = known.p / known.i;
+                        unit = "В";
+                        message = `Напряжение U = ${formatResult(result, unit)}<br>`;
+                        message += `Сопротивление R = ${formatResult(known.p / (known.i * known.i), 'Ом')}`;
+                    }
                 }
                 else if (known.p !== undefined && known.u !== undefined) {
-                    result = known.p / known.u;
-                    unit = "А";
-                    message = `Сила тока I = ${formatResult(result, unit)}<br>`;
-                    message += `Сопротивление R = ${formatResult(known.u * known.u / known.p, 'Ом')}`;
+                    if (Math.abs(known.u) < 1e-30) {
+                        message = "Напряжение U не может быть нулевым";
+                    } else {
+                        result = known.p / known.u;
+                        unit = "А";
+                        message = `Сила тока I = ${formatResult(result, unit)}<br>`;
+                        message += `Сопротивление R = ${formatResult(known.u * known.u / known.p, 'Ом')}`;
+                    }
                 }
                 else if (known.p !== undefined && known.r !== undefined) {
-                    result = Math.sqrt(known.p * known.r);
-                    unit = "В";
-                    const current = Math.sqrt(known.p / known.r);
-                    message = `Напряжение U = ${formatResult(result, unit)}<br>`;
-                    message += `Сила тока I = ${formatResult(current, 'А')}`;
+                    if (Math.abs(known.r) < 1e-30) {
+                        message = "Сопротивление R не может быть нулевым";
+                    } else {
+                        result = Math.sqrt(known.p * known.r);
+                        unit = "В";
+                        const current = Math.sqrt(known.p / known.r);
+                        message = `Напряжение U = ${formatResult(result, unit)}<br>`;
+                        message += `Сила тока I = ${formatResult(current, 'А')}`;
+                    }
                 }
             }
             
@@ -1123,7 +1167,7 @@
             hideResult('result-power');
         }
 
-        function calculateAmpereForce() {
+        function calculateAmpereForce(event) {
             const container = event.target.closest('.formula-item');
             const f = toNumber(container.querySelector('.f-mantissa').value, container.querySelector('.f-exponent').value);
             const i = toNumber(container.querySelector('.i-mantissa').value, container.querySelector('.i-exponent').value);
@@ -1144,7 +1188,7 @@
                     unit = "Н";
                     message = `Сила F = ${formatResult(result, unit)}`;
                 } else if (isNaN(i)) {
-                    if (b * l * sinAlpha === 0) {
+                    if (Math.abs(b * l * sinAlpha) < 1e-30) {
                         message = "Произведение B×L×sinα не может быть нулевым";
                     } else {
                         result = f / (b * l * sinAlpha);
@@ -1152,7 +1196,7 @@
                         message = `Сила тока I = ${formatResult(result, unit)}`;
                     }
                 } else if (isNaN(b)) {
-                    if (i * l * sinAlpha === 0) {
+                    if (Math.abs(i * l * sinAlpha) < 1e-30) {
                         message = "Произведение I×L×sinα не может быть нулевым";
                     } else {
                         result = f / (i * l * sinAlpha);
@@ -1160,7 +1204,7 @@
                         message = `Индукция B = ${formatResult(result, unit)}`;
                     }
                 } else if (isNaN(l)) {
-                    if (i * b * sinAlpha === 0) {
+                    if (Math.abs(i * b * sinAlpha) < 1e-30) {
                         message = "Произведение I×B×sinα не может быть нулевым";
                     } else {
                         result = f / (i * b * sinAlpha);
@@ -1179,7 +1223,7 @@
             hideResult('result-ampere-force');
         }
 
-        function calculateLorentzForce() {
+        function calculateLorentzForce(event) {
             const container = event.target.closest('.formula-item');
             const f = toNumber(container.querySelector('.f-mantissa').value, container.querySelector('.f-exponent').value);
             const q = toNumber(container.querySelector('.q-mantissa').value, container.querySelector('.q-exponent').value);
@@ -1200,7 +1244,7 @@
                     unit = "Н";
                     message = `Сила F = ${formatResult(result, unit)}`;
                 } else if (isNaN(q)) {
-                    if (v * b * sinAlpha === 0) {
+                    if (Math.abs(v * b * sinAlpha) < 1e-30) {
                         message = "Произведение v×B×sinα не может быть нулевым";
                     } else {
                         result = f / (v * b * sinAlpha);
@@ -1208,7 +1252,7 @@
                         message = `Заряд q = ${formatResult(result, unit)}`;
                     }
                 } else if (isNaN(v)) {
-                    if (q * b * sinAlpha === 0) {
+                    if (Math.abs(q * b * sinAlpha) < 1e-30) {
                         message = "Произведение q×B×sinα не может быть нулевым";
                     } else {
                         result = f / (q * b * sinAlpha);
@@ -1216,7 +1260,7 @@
                         message = `Скорость v = ${formatResult(result, unit)}`;
                     }
                 } else if (isNaN(b)) {
-                    if (q * v * sinAlpha === 0) {
+                    if (Math.abs(q * v * sinAlpha) < 1e-30) {
                         message = "Произведение q×v×sinα не может быть нулевым";
                     } else {
                         result = f / (q * v * sinAlpha);
@@ -1235,7 +1279,7 @@
             hideResult('result-lorentz-force');
         }
 
-        function calculateFaradayLaw() {
+        function calculateFaradayLaw(event) {
             const container = event.target.closest('.formula-item');
             const emf = toNumber(container.querySelector('.emf-mantissa').value, container.querySelector('.emf-exponent').value);
             const dphi = toNumber(container.querySelector('.dphi-mantissa').value, container.querySelector('.dphi-exponent').value);
@@ -1244,17 +1288,25 @@
             let result, unit, message;
             
             if (!isNaN(dphi) && !isNaN(dt)) {
-                result = Math.abs(dphi) / dt;
-                unit = "В";
-                message = `ЭДС |ℰ| = ${formatResult(result, unit)}`;
+                if (Math.abs(dt) < 1e-30) {
+                    message = "Время Δt не может быть нулевым";
+                } else {
+                    result = Math.abs(dphi) / dt;
+                    unit = "В";
+                    message = `ЭДС |ℰ| = ${formatResult(result, unit)}`;
+                }
             } else if (!isNaN(emf) && !isNaN(dt)) {
-                result = emf * dt;
+                result = Math.abs(emf) * dt;
                 unit = "Вб";
                 message = `Изменение потока |ΔΦ| = ${formatResult(result, unit)}`;
             } else if (!isNaN(emf) && !isNaN(dphi)) {
-                result = Math.abs(dphi) / emf;
-                unit = "с";
-                message = `Время Δt = ${formatResult(result, unit)}`;
+                if (Math.abs(emf) < 1e-30) {
+                    message = "ЭДС ℰ не может быть нулевой";
+                } else {
+                    result = Math.abs(dphi) / Math.abs(emf);
+                    unit = "с";
+                    message = `Время Δt = ${formatResult(result, unit)}`;
+                }
             } else {
                 message = "Введите значения для любых двух величин";
             }
@@ -1268,7 +1320,7 @@
             hideResult('result-faraday-law');
         }
 
-        function calculateMagneticFlux() {
+        function calculateMagneticFlux(event) {
             const container = event.target.closest('.formula-item');
             const phi = toNumber(container.querySelector('.phi-mantissa').value, container.querySelector('.phi-exponent').value);
             const b = toNumber(container.querySelector('.b-mantissa').value, container.querySelector('.b-exponent').value);
@@ -1282,12 +1334,12 @@
                 result = b * s * Math.abs(cosAlpha);
                 unit = "Вб";
                 message = `Магнитный поток Φ = ${formatResult(result, unit)}`;
-            } else if (!isNaN(phi) && !isNaN(s) && cosAlpha !== 0) {
-                result = phi / (s * Math.abs(cosAlpha));
+            } else if (!isNaN(phi) && !isNaN(s) && Math.abs(cosAlpha) > 1e-30) {
+                result = Math.abs(phi) / (s * Math.abs(cosAlpha));
                 unit = "Тл";
                 message = `Индукция B = ${formatResult(result, unit)}`;
-            } else if (!isNaN(phi) && !isNaN(b) && cosAlpha !== 0) {
-                result = phi / (b * Math.abs(cosAlpha));
+            } else if (!isNaN(phi) && !isNaN(b) && Math.abs(cosAlpha) > 1e-30) {
+                result = Math.abs(phi) / (b * Math.abs(cosAlpha));
                 unit = "м²";
                 message = `Площадь S = ${formatResult(result, unit)}`;
             } else {
