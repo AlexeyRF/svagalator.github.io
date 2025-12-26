@@ -527,11 +527,6 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>🔬 Физический калькулятор: Молекулярная физика и термодинамика</h1>
-            <p class="subtitle">Введите известные значения и вычислите неизвестные величины</p>
-        </header>
-
         <div class="nav-buttons">
             <button class="nav-btn" onclick="window.location.href='mechanics.html'">Механика</button>
             <button class="nav-btn active">Молекулярная физика</button>
@@ -541,9 +536,8 @@
         </div>
 
         <div class="content">
-            <!-- Уравнение состояния -->
             <div class="formula-section">
-                <h2 class="section-title">⚗️ Уравнение состояния</h2>
+                <h2 class="section-title">Уравнение состояния</h2>
                 
                 <div class="formula-group">
                     <div class="formula-item">
@@ -669,9 +663,8 @@
                 </div>
             </div>
 
-            <!-- МКТ и энергия -->
             <div class="formula-section">
-                <h2 class="section-title">⚛️ МКТ и энергия</h2>
+                <h2 class="section-title">МКТ и энергия</h2>
                 
                 <div class="formula-group">
                     <div class="formula-item">
@@ -747,9 +740,8 @@
                 </div>
             </div>
 
-            <!-- Термодинамика -->
             <div class="formula-section">
-                <h2 class="section-title">🔥 Термодинамика</h2>
+                <h2 class="section-title">Термодинамика</h2>
                 
                 <div class="formula-group">
                     <div class="formula-item">
@@ -834,9 +826,8 @@
                 </div>
             </div>
 
-            <!-- Тепловые машины -->
             <div class="formula-section">
-                <h2 class="section-title">🏭 Тепловые машины</h2>
+                <h2 class="section-title">Тепловые машины</h2>
                 
                 <div class="formula-group">
                     <div class="formula-item">
@@ -933,12 +924,11 @@
     </div>
 
     <script>
-        // Константы
-        const R = 8.314462618; // Универсальная газовая постоянная, Дж/(моль·К)
-        const k = 1.380649e-23; // Постоянная Больцмана, Дж/К
-        const Na = 6.02214076e23; // Число Авогадро, моль⁻¹
+        const R = 8.314462618; 
+        const k = 1.380649e-23; 
+        const Na = 6.02214076e23; 
 
-        // Утилиты для преобразования чисел
+
         function toNumber(mantissa, exponent) {
             return parseFloat(mantissa) * Math.pow(10, parseInt(exponent) || 0);
         }
@@ -978,7 +968,6 @@
             return values.filter(val => !isNaN(val) && val !== null).length;
         }
 
-        // Функции для уравнения состояния
         function calculateMendeleevClapeyron() {
             const container = event.target.closest('.formula-item');
             const p = toNumber(container.querySelector('.p-mantissa').value, container.querySelector('.p-exponent').value);
@@ -1021,7 +1010,6 @@
             hideResult('result-mendeleev-clapeyron');
         }
 
-        // Функции для изопроцессов
         function changeIsoprocess() {
             const selector = document.querySelector('.process-selector');
             const equation = document.getElementById('isoprocess-equation');
@@ -1054,7 +1042,6 @@
             let unknownCount = 0;
             let unknownName = "";
             
-            // Подсчитываем, сколько значений неизвестно
             const values = [p1, v1, t1, p2, v2, t2];
             values.forEach((val, index) => {
                 if (isNaN(val)) {
@@ -1072,7 +1059,7 @@
                 message = "Оставьте одну неизвестную величину";
             } else {
                 switch(selector.value) {
-                    case 'isothermal': // p1V1 = p2V2
+                    case 'isothermal': 
                         if (isNaN(p1)) {
                             result = (p2 * v2) / v1;
                             unit = "Па";
@@ -1092,7 +1079,7 @@
                         }
                         break;
                         
-                    case 'isobaric': // V1/T1 = V2/T2
+                    case 'isobaric':
                         if (isNaN(v1)) {
                             result = (v2 * t1) / t2;
                             unit = "м³";
@@ -1112,7 +1099,7 @@
                         }
                         break;
                         
-                    case 'isochoric': // p1/T1 = p2/T2
+                    case 'isochoric': 
                         if (isNaN(p1)) {
                             result = (p2 * t1) / t2;
                             unit = "Па";
@@ -1143,7 +1130,7 @@
             hideResult('result-isoprocess');
         }
 
-        // Функции для МКТ
+
         function calculateMKT() {
             const container = event.target.closest('.formula-item');
             const p = toNumber(container.querySelector('.p-mantissa').value, container.querySelector('.p-exponent').value);
@@ -1205,7 +1192,6 @@
             hideResult('result-kinetic-energy');
         }
 
-        // Функции для термодинамики
         function calculateInternalEnergy() {
             const container = event.target.closest('.formula-item');
             const u = toNumber(container.querySelector('.u-mantissa').value, container.querySelector('.u-exponent').value);
@@ -1272,7 +1258,6 @@
             hideResult('result-first-law');
         }
 
-        // Функции для тепловых машин
         function calculateEfficiency() {
             const container = event.target.closest('.formula-item');
             const eta = toNumber(container.querySelector('.eta-mantissa').value, container.querySelector('.eta-exponent').value);
@@ -1350,9 +1335,7 @@
             hideResult('result-carnot');
         }
 
-        // Инициализация
         document.addEventListener('DOMContentLoaded', function() {
-            // Установка значений по умолчанию
             const tInputs = document.querySelectorAll('.t-mantissa, .t1-mantissa');
             tInputs.forEach(input => {
                 if (input.value === '' && input.classList.contains('t-mantissa')) {
