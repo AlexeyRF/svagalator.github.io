@@ -278,11 +278,6 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>⚡ Физический калькулятор: Электродинамика и Магнетизм</h1>
-            <p class="subtitle">Введите известные значения и вычислите неизвестные величины</p>
-        </header>
-
         <div class="nav-buttons">
             <button class="nav-btn" onclick="window.location.href='mechanics.html'">Механика</button>
             <button class="nav-btn" onclick="window.location.href='molecular.html'">Молекулярная физика</button>
@@ -292,9 +287,8 @@
         </div>
 
         <div class="content">
-            <!-- Электростатика -->
             <div class="formula-section">
-                <h2 class="section-title">⚡ Электростатика</h2>
+                <h2 class="section-title">Электростатика</h2>
                 
                 <div class="formula-group">
                     <div class="formula-item">
@@ -439,9 +433,8 @@
                 </div>
             </div>
 
-            <!-- Постоянный ток -->
             <div class="formula-section">
-                <h2 class="section-title">🔌 Постоянный ток</h2>
+                <h2 class="section-title">Постоянный ток</h2>
                 
                 <div class="formula-group">
                     <div class="formula-item">
@@ -584,9 +577,8 @@
                 </div>
             </div>
 
-            <!-- Магнетизм -->
             <div class="formula-section">
-                <h2 class="section-title">🧲 Магнетизм</h2>
+                <h2 class="section-title">Магнетизм</h2>
                 
                 <div class="formula-group">
                     <div class="formula-item">
@@ -793,11 +785,8 @@
     </div>
 
     <script>
-        // Константы
-        const k = 8.9875517873681764e9; // постоянная Кулона, Н·м²/Кл²
-        const e = 1.602176634e-19; // элементарный заряд, Кл
-
-        // Утилиты
+        const k = 8.9875517873681764e9; 
+        const e = 1.602176634e-19;
         function toNumber(mantissa, exponent) {
             const mantissaValue = parseFloat(mantissa);
             const exponentValue = parseInt(exponent) || 0;
@@ -842,7 +831,6 @@
             return degrees * Math.PI / 180;
         }
 
-        // Функции для электростатики
         function calculateCoulombsLaw() {
             const container = event.target.closest('.formula-item');
             const f = toNumber(container.querySelector('.f-mantissa').value, container.querySelector('.f-exponent').value);
@@ -939,49 +927,42 @@
             
             let result, unit, message;
             
-            // Проверяем, какие комбинации введены
             const values = {w, c, u, q};
             const filled = Object.values(values).filter(val => !isNaN(val)).length;
             
             if (filled < 3) {
                 message = "Введите значения для любых трёх величин";
             } else {
-                // Если известны C и U
                 if (!isNaN(c) && !isNaN(u)) {
                     result = 0.5 * c * u * u;
                     unit = "Дж";
                     message = `Энергия W = ${formatResult(result, unit)}<br>`;
                     message += `Заряд q = ${formatResult(c * u, 'Кл')}`;
                 }
-                // Если известны q и C
                 else if (!isNaN(q) && !isNaN(c)) {
                     result = q * q / (2 * c);
                     unit = "Дж";
                     message = `Энергия W = ${formatResult(result, unit)}<br>`;
                     message += `Напряжение U = ${formatResult(q / c, 'В')}`;
                 }
-                // Если известны q и U
                 else if (!isNaN(q) && !isNaN(u)) {
                     result = 0.5 * q * u;
                     unit = "Дж";
                     message = `Энергия W = ${formatResult(result, unit)}<br>`;
                     message += `Ёмкость C = ${formatResult(q / u, 'Ф')}`;
                 }
-                // Если известны W и C
                 else if (!isNaN(w) && !isNaN(c)) {
                     result = Math.sqrt(2 * w / c);
                     unit = "В";
                     message = `Напряжение U = ${formatResult(result, unit)}<br>`;
                     message += `Заряд q = ${formatResult(Math.sqrt(2 * w * c), 'Кл')}`;
                 }
-                // Если известны W и U
                 else if (!isNaN(w) && !isNaN(u)) {
                     result = 2 * w / (u * u);
                     unit = "Ф";
                     message = `Ёмкость C = ${formatResult(result, unit)}<br>`;
                     message += `Заряд q = ${formatResult(2 * w / u, 'Кл')}`;
                 }
-                // Если известны W и q
                 else if (!isNaN(w) && !isNaN(q)) {
                     result = 2 * w / q;
                     unit = "В";
@@ -999,7 +980,6 @@
             hideResult('result-capacitor-energy');
         }
 
-        // Функции для постоянного тока
         function calculateOhmsLaw() {
             const container = event.target.closest('.formula-item');
             const i = toNumber(container.querySelector('.i-mantissa').value, container.querySelector('.i-exponent').value);
@@ -1084,7 +1064,6 @@
             
             let result, unit, message;
             
-            // Определяем, какие величины известны
             const known = {};
             if (!isNaN(p)) known.p = p;
             if (!isNaN(i)) known.i = i;
@@ -1096,42 +1075,36 @@
             if (knownCount < 2) {
                 message = "Введите значения для любых двух величин";
             } else {
-                // Если известны I и U
                 if (known.i !== undefined && known.u !== undefined) {
                     result = known.i * known.u;
                     unit = "Вт";
                     message = `Мощность P = ${formatResult(result, unit)}<br>`;
                     message += `Сопротивление R = ${formatResult(known.u / known.i, 'Ом')}`;
                 }
-                // Если известны I и R
                 else if (known.i !== undefined && known.r !== undefined) {
                     result = known.i * known.i * known.r;
                     unit = "Вт";
                     message = `Мощность P = ${formatResult(result, unit)}<br>`;
                     message += `Напряжение U = ${formatResult(known.i * known.r, 'В')}`;
                 }
-                // Если известны U и R
                 else if (known.u !== undefined && known.r !== undefined) {
                     result = known.u * known.u / known.r;
                     unit = "Вт";
                     message = `Мощность P = ${formatResult(result, unit)}<br>`;
                     message += `Сила тока I = ${formatResult(known.u / known.r, 'А')}`;
                 }
-                // Если известны P и I
                 else if (known.p !== undefined && known.i !== undefined) {
                     result = known.p / known.i;
                     unit = "В";
                     message = `Напряжение U = ${formatResult(result, unit)}<br>`;
                     message += `Сопротивление R = ${formatResult(known.p / (known.i * known.i), 'Ом')}`;
                 }
-                // Если известны P и U
                 else if (known.p !== undefined && known.u !== undefined) {
                     result = known.p / known.u;
                     unit = "А";
                     message = `Сила тока I = ${formatResult(result, unit)}<br>`;
                     message += `Сопротивление R = ${formatResult(known.u * known.u / known.p, 'Ом')}`;
                 }
-                // Если известны P и R
                 else if (known.p !== undefined && known.r !== undefined) {
                     result = Math.sqrt(known.p * known.r);
                     unit = "В";
@@ -1150,7 +1123,6 @@
             hideResult('result-power');
         }
 
-        // Функции для магнетизма
         function calculateAmpereForce() {
             const container = event.target.closest('.formula-item');
             const f = toNumber(container.querySelector('.f-mantissa').value, container.querySelector('.f-exponent').value);
@@ -1331,9 +1303,7 @@
             hideResult('result-magnetic-flux');
         }
 
-        // Инициализация
         document.addEventListener('DOMContentLoaded', function() {
-            // Настройка значений по умолчанию для углов
             document.getElementById('ampere-angle').value = '90';
             document.getElementById('lorentz-angle').value = '90';
             document.getElementById('flux-angle').value = '0';
