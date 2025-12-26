@@ -185,6 +185,15 @@
             text-align: center;
         }
 
+        .unit-select {
+            width: 120px;
+            padding: 8px;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #555;
+            border-radius: 4px;
+        }
+
         .times-ten {
             color: #90a4ae;
             margin: 0 5px;
@@ -269,7 +278,7 @@
             }
         }
     </style>
-	    <style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -450,6 +459,15 @@
             text-align: center;
         }
 
+        .unit-select {
+            width: 120px;
+            padding: 8px;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #555;
+            border-radius: 4px;
+        }
+
         .times-ten {
             color: #90a4ae;
             margin: 0 5px;
@@ -533,7 +551,7 @@
             <button class="nav-btn" onclick="window.location.href='electrodynamics.html'">Электродинамика</button>
             <button class="nav-btn" onclick="window.location.href='optics.html'">Оптика</button>
             <button class="nav-btn" onclick="window.location.href='quantum.html'">Квантовая физика</button>
-			            <button class="nav-btn" onclick="window.location.href='ballistics.html'">Баллистика</button>
+            <button class="nav-btn" onclick="window.location.href='ballistics.html'">Баллистика</button>
             <button class="nav-btn" onclick="window.location.href='https://alexeyrf.github.io/denlator.github.io/denlator.html'">Планеты</button>
         </div>
 
@@ -552,7 +570,12 @@
                                     <input type="number" class="mantissa-input p-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input p-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">Па</span>
+                                    <select class="unit-select p-unit">
+                                        <option value="Па">Па</option>
+                                        <option value="атм">атм</option>
+                                        <option value="бар">бар</option>
+                                        <option value="мм рт.ст.">мм рт.ст.</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -561,7 +584,12 @@
                                     <input type="number" class="mantissa-input v-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input v-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">м³</span>
+                                    <select class="unit-select v-unit">
+                                        <option value="м³">м³</option>
+                                        <option value="л">л</option>
+                                        <option value="мл">мл</option>
+                                        <option value="см³">см³</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -570,7 +598,11 @@
                                     <input type="number" class="mantissa-input nu-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input nu-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">моль</span>
+                                    <select class="unit-select nu-unit">
+                                        <option value="моль">моль</option>
+                                        <option value="кмоль">кмоль</option>
+                                        <option value="ммоль">ммоль</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -579,7 +611,10 @@
                                     <input type="number" class="mantissa-input t-mantissa" placeholder="мантисса" value="293">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input t-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">К</span>
+                                    <select class="unit-select t-unit">
+                                        <option value="К">К</option>
+                                        <option value="°C">°C</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -606,7 +641,12 @@
                                     <input type="number" class="mantissa-input p1-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input p1-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">Па</span>
+                                    <select class="unit-select p1-unit">
+                                        <option value="Па">Па</option>
+                                        <option value="атм">атм</option>
+                                        <option value="бар">бар</option>
+                                        <option value="мм рт.ст.">мм рт.ст.</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -615,7 +655,12 @@
                                     <input type="number" class="mantissa-input v1-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input v1-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">м³</span>
+                                    <select class="unit-select v1-unit">
+                                        <option value="м³">м³</option>
+                                        <option value="л">л</option>
+                                        <option value="мл">мл</option>
+                                        <option value="см³">см³</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -624,7 +669,10 @@
                                     <input type="number" class="mantissa-input t1-mantissa" placeholder="мантисса" value="293">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input t1-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">К</span>
+                                    <select class="unit-select t1-unit">
+                                        <option value="К">К</option>
+                                        <option value="°C">°C</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -633,7 +681,12 @@
                                     <input type="number" class="mantissa-input p2-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input p2-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">Па</span>
+                                    <select class="unit-select p2-unit">
+                                        <option value="Па">Па</option>
+                                        <option value="атм">атм</option>
+                                        <option value="бар">бар</option>
+                                        <option value="мм рт.ст.">мм рт.ст.</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -642,7 +695,12 @@
                                     <input type="number" class="mantissa-input v2-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input v2-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">м³</span>
+                                    <select class="unit-select v2-unit">
+                                        <option value="м³">м³</option>
+                                        <option value="л">л</option>
+                                        <option value="мл">мл</option>
+                                        <option value="см³">см³</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -651,7 +709,10 @@
                                     <input type="number" class="mantissa-input t2-mantissa" placeholder="мантисса" value="293">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input t2-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">К</span>
+                                    <select class="unit-select t2-unit">
+                                        <option value="К">К</option>
+                                        <option value="°C">°C</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -670,7 +731,7 @@
                 
                 <div class="formula-group">
                     <div class="formula-item">
-                        <div class="formula-name">Основное уравнение МКТ</div>
+                        <div class="formula-name">Основное уравнение МКТ (через среднюю энергию)</div>
                         <div class="formula-expression">p = (2/3) × n × E</div>
                         <div class="variables-container">
                             <div class="variable-row">
@@ -679,7 +740,12 @@
                                     <input type="number" class="mantissa-input p-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input p-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">Па</span>
+                                    <select class="unit-select p-unit">
+                                        <option value="Па">Па</option>
+                                        <option value="атм">атм</option>
+                                        <option value="бар">бар</option>
+                                        <option value="мм рт.ст.">мм рт.ст.</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -688,7 +754,11 @@
                                     <input type="number" class="mantissa-input n-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input n-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">м⁻³</span>
+                                    <select class="unit-select n-unit">
+                                        <option value="м⁻³">м⁻³</option>
+                                        <option value="см⁻³">см⁻³</option>
+                                        <option value="л⁻¹">л⁻¹</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -697,13 +767,83 @@
                                     <input type="number" class="mantissa-input e-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input e-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">Дж</span>
+                                    <select class="unit-select e-unit">
+                                        <option value="Дж">Дж</option>
+                                        <option value="кДж">кДж</option>
+                                        <option value="эВ">эВ</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                         <button class="calculate-btn" onclick="calculateMKT()">Вычислить</button>
                         <button class="calculate-btn clear-btn" onclick="clearMKT()">Очистить</button>
                         <div class="result-container" id="result-mkt">
+                            <div class="result-title">Результат:</div>
+                            <div class="result-value"></div>
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Основное уравнение МКТ (через скорость)</div>
+                        <div class="formula-expression">p = (1/3) × n × m₀ × v²</div>
+                        <div class="variables-container">
+                            <div class="variable-row">
+                                <span class="variable-label">Давление (p):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input p2-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input p2-exponent" placeholder="степень" value="0"></sup>
+                                    <select class="unit-select p2-unit">
+                                        <option value="Па">Па</option>
+                                        <option value="атм">атм</option>
+                                        <option value="бар">бар</option>
+                                        <option value="мм рт.ст.">мм рт.ст.</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Концентрация (n):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input n2-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input n2-exponent" placeholder="степень" value="0"></sup>
+                                    <select class="unit-select n2-unit">
+                                        <option value="м⁻³">м⁻³</option>
+                                        <option value="см⁻³">см⁻³</option>
+                                        <option value="л⁻¹">л⁻¹</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Масса мол. (m₀):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input m0-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input m0-exponent" placeholder="степень" value="-27"></sup>
+                                    <select class="unit-select m0-unit">
+                                        <option value="кг">кг</option>
+                                        <option value="г">г</option>
+                                        <option value="а.е.м.">а.е.м.</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="variable-row">
+                                <span class="variable-label">Скорость (v):</span>
+                                <div class="input-group">
+                                    <input type="number" class="mantissa-input v2-mantissa" placeholder="мантисса">
+                                    <span class="times-ten">×10</span>
+                                    <sup><input type="number" class="exponent-input v2-exponent" placeholder="степень" value="0"></sup>
+                                    <select class="unit-select v2-unit">
+                                        <option value="м/с">м/с</option>
+                                        <option value="км/с">км/с</option>
+                                        <option value="км/ч">км/ч</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="calculate-btn" onclick="calculateMKT2()">Вычислить</button>
+                        <button class="calculate-btn clear-btn" onclick="clearMKT2()">Очистить</button>
+                        <div class="result-container" id="result-mkt2">
                             <div class="result-title">Результат:</div>
                             <div class="result-value"></div>
                         </div>
@@ -719,7 +859,11 @@
                                     <input type="number" class="mantissa-input e-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input e-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">Дж</span>
+                                    <select class="unit-select e-unit">
+                                        <option value="Дж">Дж</option>
+                                        <option value="кДж">кДж</option>
+                                        <option value="эВ">эВ</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -728,7 +872,10 @@
                                     <input type="number" class="mantissa-input t-mantissa" placeholder="мантисса" value="293">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input t-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">К</span>
+                                    <select class="unit-select t-unit">
+                                        <option value="К">К</option>
+                                        <option value="°C">°C</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -756,7 +903,12 @@
                                     <input type="number" class="mantissa-input u-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input u-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">Дж</span>
+                                    <select class="unit-select u-unit">
+                                        <option value="Дж">Дж</option>
+                                        <option value="кДж">кДж</option>
+                                        <option value="кал">кал</option>
+                                        <option value="ккал">ккал</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -765,7 +917,11 @@
                                     <input type="number" class="mantissa-input nu-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input nu-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">моль</span>
+                                    <select class="unit-select nu-unit">
+                                        <option value="моль">моль</option>
+                                        <option value="кмоль">кмоль</option>
+                                        <option value="ммоль">ммоль</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -774,7 +930,10 @@
                                     <input type="number" class="mantissa-input t-mantissa" placeholder="мантисса" value="293">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input t-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">К</span>
+                                    <select class="unit-select t-unit">
+                                        <option value="К">К</option>
+                                        <option value="°C">°C</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -796,7 +955,12 @@
                                     <input type="number" class="mantissa-input q-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input q-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">Дж</span>
+                                    <select class="unit-select q-unit">
+                                        <option value="Дж">Дж</option>
+                                        <option value="кДж">кДж</option>
+                                        <option value="кал">кал</option>
+                                        <option value="ккал">ккал</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -805,7 +969,12 @@
                                     <input type="number" class="mantissa-input du-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input du-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">Дж</span>
+                                    <select class="unit-select du-unit">
+                                        <option value="Дж">Дж</option>
+                                        <option value="кДж">кДж</option>
+                                        <option value="кал">кал</option>
+                                        <option value="ккал">ккал</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -814,7 +983,12 @@
                                     <input type="number" class="mantissa-input a-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input a-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">Дж</span>
+                                    <select class="unit-select a-unit">
+                                        <option value="Дж">Дж</option>
+                                        <option value="кДж">кДж</option>
+                                        <option value="кал">кал</option>
+                                        <option value="ккал">ккал</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -842,7 +1016,10 @@
                                     <input type="number" class="mantissa-input eta-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input eta-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">(доля)</span>
+                                    <select class="unit-select eta-unit">
+                                        <option value="доля">доля</option>
+                                        <option value="%">%</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -851,7 +1028,12 @@
                                     <input type="number" class="mantissa-input a-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input a-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">Дж</span>
+                                    <select class="unit-select a-unit">
+                                        <option value="Дж">Дж</option>
+                                        <option value="кДж">кДж</option>
+                                        <option value="кал">кал</option>
+                                        <option value="ккал">ккал</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -860,7 +1042,12 @@
                                     <input type="number" class="mantissa-input q1-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input q1-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">Дж</span>
+                                    <select class="unit-select q1-unit">
+                                        <option value="Дж">Дж</option>
+                                        <option value="кДж">кДж</option>
+                                        <option value="кал">кал</option>
+                                        <option value="ккал">ккал</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -869,7 +1056,12 @@
                                     <input type="number" class="mantissa-input q2-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input q2-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">Дж</span>
+                                    <select class="unit-select q2-unit">
+                                        <option value="Дж">Дж</option>
+                                        <option value="кДж">кДж</option>
+                                        <option value="кал">кал</option>
+                                        <option value="ккал">ккал</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -891,7 +1083,10 @@
                                     <input type="number" class="mantissa-input eta-mantissa" placeholder="мантисса">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input eta-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">(доля)</span>
+                                    <select class="unit-select eta-unit">
+                                        <option value="доля">доля</option>
+                                        <option value="%">%</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -900,7 +1095,10 @@
                                     <input type="number" class="mantissa-input t1-mantissa" placeholder="мантисса" value="373">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input t1-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">К</span>
+                                    <select class="unit-select t1-unit">
+                                        <option value="К">К</option>
+                                        <option value="°C">°C</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="variable-row">
@@ -909,7 +1107,10 @@
                                     <input type="number" class="mantissa-input t2-mantissa" placeholder="мантисса" value="293">
                                     <span class="times-ten">×10</span>
                                     <sup><input type="number" class="exponent-input t2-exponent" placeholder="степень" value="0"></sup>
-                                    <span class="unit">К</span>
+                                    <select class="unit-select t2-unit">
+                                        <option value="К">К</option>
+                                        <option value="°C">°C</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -929,26 +1130,147 @@
         const R = 8.314462618; 
         const k = 1.380649e-23; 
         const Na = 6.02214076e23; 
+        const atm_to_pa = 101325; 
+        const bar_to_pa = 1e5; 
+        const mmHg_to_pa = 133.322; 
+        const liter_to_m3 = 0.001; 
+        const ml_to_m3 = 1e-6; 
+        const cm3_to_m3 = 1e-6; 
+        const kmol_to_mol = 1000; 
+        const mmol_to_mol = 0.001; 
+        const kJ_to_J = 1000; 
+        const eV_to_J = 1.602176634e-19; 
+        const cal_to_J = 4.184; 
+        const kcal_to_J = 4184; 
+        const g_to_kg = 0.001; 
+        const amu_to_kg = 1.66053906660e-27; 
+        const kmh_to_ms = 1/3.6; 
+        const kms_to_ms = 1000; 
+        const cm_to_m = 0.01; 
+        
+        const unitConversion = {
+            pressure: {
+                'Па': 1,
+                'атм': atm_to_pa,
+                'бар': bar_to_pa,
+                'мм рт.ст.': mmHg_to_pa
+            },
+            volume: {
+                'м³': 1,
+                'л': liter_to_m3,
+                'мл': ml_to_m3,
+                'см³': cm3_to_m3
+            },
+            amount: {
+                'моль': 1,
+                'кмоль': kmol_to_mol,
+                'ммоль': mmol_to_mol
+            },
+            temperature: {
+                'К': (val) => val,
+                '°C': (val) => val + 273.15
+            },
+            temperature_reverse: {
+                'К': (val) => val,
+                '°C': (val) => val - 273.15
+            },
+            energy: {
+                'Дж': 1,
+                'кДж': kJ_to_J,
+                'эВ': eV_to_J,
+                'кал': cal_to_J,
+                'ккал': kcal_to_J
+            },
+            concentration: {
+                'м⁻³': 1,
+                'см⁻³': 1/(cm_to_m**3),
+                'л⁻¹': 1/liter_to_m3
+            },
+            mass: {
+                'кг': 1,
+                'г': g_to_kg,
+                'а.е.м.': amu_to_kg
+            },
+            velocity: {
+                'м/с': 1,
+                'км/с': kms_to_ms,
+                'км/ч': kmh_to_ms
+            },
+            efficiency: {
+                'доля': 1,
+                '%': 0.01
+            }
+        };
 
-
-        function toNumber(mantissa, exponent) {
-            return parseFloat(mantissa) * Math.pow(10, parseInt(exponent) || 0);
+        function toNumber(mantissa, exponent, unit, type) {
+            const value = parseFloat(mantissa) * Math.pow(10, parseInt(exponent) || 0);
+            if (isNaN(value)) return NaN;
+            
+            if (type === 'temperature') {
+                if (unit === '°C') {
+                    return value + 273.15;
+                }
+                return value;
+            }
+            
+            if (type === 'temperature_reverse') {
+                if (unit === '°C') {
+                    return value - 273.15;
+                }
+                return value;
+            }
+            
+            const conversion = unitConversion[type];
+            if (conversion && conversion[unit]) {
+                return value * conversion[unit];
+            }
+            return value;
         }
 
-        function formatResult(value, unit) {
+        function fromNumber(value, unit, type) {
+            if (isNaN(value)) return NaN;
+            
+            if (type === 'temperature') {
+                if (unit === '°C') {
+                    return value - 273.15;
+                }
+                return value;
+            }
+            
+            const conversion = unitConversion[type];
+            if (conversion && conversion[unit]) {
+                return value / conversion[unit];
+            }
+            return value;
+        }
+
+        function formatResult(value, unit, type) {
             if (value === null || isNaN(value)) return "Ошибка вычисления";
             
-            if (Math.abs(value) >= 10000 || (Math.abs(value) < 0.001 && value !== 0)) {
-                const exponent = Math.floor(Math.log10(Math.abs(value)));
-                const mantissa = value / Math.pow(10, exponent);
+            let displayValue;
+            if (type === 'temperature') {
+                displayValue = fromNumber(value, unit, 'temperature');
+            } else {
+                displayValue = fromNumber(value, unit, type);
+            }
+            
+            if (Math.abs(displayValue) >= 10000 || (Math.abs(displayValue) < 0.001 && displayValue !== 0)) {
+                const exponent = Math.floor(Math.log10(Math.abs(displayValue)));
+                const mantissa = displayValue / Math.pow(10, exponent);
                 return `${mantissa.toFixed(4)} ×10<sup>${exponent}</sup> ${unit}`;
             }
-            return `${value.toFixed(6)} ${unit}`;
+            return `${displayValue.toFixed(6)} ${unit}`;
         }
 
-        function formatPercentage(value) {
+        function formatPercentage(value, unit) {
             if (value === null || isNaN(value)) return "Ошибка вычисления";
-            return `${(value * 100).toFixed(2)}%`;
+            
+            let displayValue = value;
+            if (unit === '%') {
+                displayValue = value * 100;
+                return `${displayValue.toFixed(2)}%`;
+            }
+            return `${displayValue.toFixed(4)}`;
         }
 
         function showResult(elementId, message) {
@@ -972,12 +1294,32 @@
 
         function calculateMendeleevClapeyron() {
             const container = event.target.closest('.formula-item');
-            const p = toNumber(container.querySelector('.p-mantissa').value, container.querySelector('.p-exponent').value);
-            const v = toNumber(container.querySelector('.v-mantissa').value, container.querySelector('.v-exponent').value);
-            const nu = toNumber(container.querySelector('.nu-mantissa').value, container.querySelector('.nu-exponent').value);
-            const t = toNumber(container.querySelector('.t-mantissa').value, container.querySelector('.t-exponent').value);
+            const p = toNumber(
+                container.querySelector('.p-mantissa').value, 
+                container.querySelector('.p-exponent').value,
+                container.querySelector('.p-unit').value,
+                'pressure'
+            );
+            const v = toNumber(
+                container.querySelector('.v-mantissa').value, 
+                container.querySelector('.v-exponent').value,
+                container.querySelector('.v-unit').value,
+                'volume'
+            );
+            const nu = toNumber(
+                container.querySelector('.nu-mantissa').value, 
+                container.querySelector('.nu-exponent').value,
+                container.querySelector('.nu-unit').value,
+                'amount'
+            );
+            const t = toNumber(
+                container.querySelector('.t-mantissa').value, 
+                container.querySelector('.t-exponent').value,
+                container.querySelector('.t-unit').value,
+                'temperature'
+            );
             
-            let result, unit, message;
+            let result, unit, type, message;
             const values = [p, v, nu, t];
             const filled = getFilledCount(values);
             
@@ -986,20 +1328,24 @@
             } else {
                 if (isNaN(p)) {
                     result = (nu * R * t) / v;
-                    unit = "Па";
-                    message = `Давление p = ${formatResult(result, unit)}`;
+                    unit = container.querySelector('.p-unit').value;
+                    type = 'pressure';
+                    message = `Давление p = ${formatResult(result, unit, type)}`;
                 } else if (isNaN(v)) {
                     result = (nu * R * t) / p;
-                    unit = "м³";
-                    message = `Объём V = ${formatResult(result, unit)}`;
+                    unit = container.querySelector('.v-unit').value;
+                    type = 'volume';
+                    message = `Объём V = ${formatResult(result, unit, type)}`;
                 } else if (isNaN(nu)) {
                     result = (p * v) / (R * t);
-                    unit = "моль";
-                    message = `Количество вещества ν = ${formatResult(result, unit)}`;
+                    unit = container.querySelector('.nu-unit').value;
+                    type = 'amount';
+                    message = `Количество вещества ν = ${formatResult(result, unit, type)}`;
                 } else if (isNaN(t)) {
                     result = (p * v) / (nu * R);
-                    unit = "К";
-                    message = `Температура T = ${formatResult(result, unit)}`;
+                    unit = container.querySelector('.t-unit').value;
+                    type = 'temperature';
+                    message = `Температура T = ${formatResult(result, unit, type)}`;
                 }
             }
             
@@ -1033,93 +1379,100 @@
             const container = event.target.closest('.formula-item');
             const selector = document.querySelector('.process-selector');
             
-            const p1 = toNumber(container.querySelector('.p1-mantissa').value, container.querySelector('.p1-exponent').value);
-            const v1 = toNumber(container.querySelector('.v1-mantissa').value, container.querySelector('.v1-exponent').value);
-            const t1 = toNumber(container.querySelector('.t1-mantissa').value, container.querySelector('.t1-exponent').value);
-            const p2 = toNumber(container.querySelector('.p2-mantissa').value, container.querySelector('.p2-exponent').value);
-            const v2 = toNumber(container.querySelector('.v2-mantissa').value, container.querySelector('.v2-exponent').value);
-            const t2 = toNumber(container.querySelector('.t2-mantissa').value, container.querySelector('.t2-exponent').value);
+            const p1 = toNumber(
+                container.querySelector('.p1-mantissa').value, 
+                container.querySelector('.p1-exponent').value,
+                container.querySelector('.p1-unit').value,
+                'pressure'
+            );
+            const v1 = toNumber(
+                container.querySelector('.v1-mantissa').value, 
+                container.querySelector('.v1-exponent').value,
+                container.querySelector('.v1-unit').value,
+                'volume'
+            );
+            const t1 = toNumber(
+                container.querySelector('.t1-mantissa').value, 
+                container.querySelector('.t1-exponent').value,
+                container.querySelector('.t1-unit').value,
+                'temperature'
+            );
+            const p2 = toNumber(
+                container.querySelector('.p2-mantissa').value, 
+                container.querySelector('.p2-exponent').value,
+                container.querySelector('.p2-unit').value,
+                'pressure'
+            );
+            const v2 = toNumber(
+                container.querySelector('.v2-mantissa').value, 
+                container.querySelector('.v2-exponent').value,
+                container.querySelector('.v2-unit').value,
+                'volume'
+            );
+            const t2 = toNumber(
+                container.querySelector('.t2-mantissa').value, 
+                container.querySelector('.t2-exponent').value,
+                container.querySelector('.t2-unit').value,
+                'temperature'
+            );
             
-            let result, unit, message;
+            let result, unit, type, message;
             let unknownCount = 0;
-            let unknownName = "";
             
             const values = [p1, v1, t1, p2, v2, t2];
+            const unknownIndices = [];
             values.forEach((val, index) => {
                 if (isNaN(val)) {
                     unknownCount++;
-                    if (index === 0) unknownName = "p₁";
-                    else if (index === 1) unknownName = "V₁";
-                    else if (index === 2) unknownName = "T₁";
-                    else if (index === 3) unknownName = "p₂";
-                    else if (index === 4) unknownName = "V₂";
-                    else if (index === 5) unknownName = "T₂";
+                    unknownIndices.push(index);
                 }
             });
             
             if (unknownCount !== 1) {
                 message = "Оставьте одну неизвестную величину";
             } else {
+                const unknownIndex = unknownIndices[0];
+                let paramName = '';
+                let containerParam = null;
+                
+                switch(unknownIndex) {
+                    case 0: paramName = 'p₁'; containerParam = container.querySelector('.p1-unit'); type = 'pressure'; break;
+                    case 1: paramName = 'V₁'; containerParam = container.querySelector('.v1-unit'); type = 'volume'; break;
+                    case 2: paramName = 'T₁'; containerParam = container.querySelector('.t1-unit'); type = 'temperature'; break;
+                    case 3: paramName = 'p₂'; containerParam = container.querySelector('.p2-unit'); type = 'pressure'; break;
+                    case 4: paramName = 'V₂'; containerParam = container.querySelector('.v2-unit'); type = 'volume'; break;
+                    case 5: paramName = 'T₂'; containerParam = container.querySelector('.t2-unit'); type = 'temperature'; break;
+                }
+                
+                unit = containerParam.value;
+                
                 switch(selector.value) {
                     case 'isothermal': 
-                        if (isNaN(p1)) {
-                            result = (p2 * v2) / v1;
-                            unit = "Па";
-                            message = `p₁ = ${formatResult(result, unit)}`;
-                        } else if (isNaN(v1)) {
-                            result = (p2 * v2) / p1;
-                            unit = "м³";
-                            message = `V₁ = ${formatResult(result, unit)}`;
-                        } else if (isNaN(p2)) {
-                            result = (p1 * v1) / v2;
-                            unit = "Па";
-                            message = `p₂ = ${formatResult(result, unit)}`;
-                        } else if (isNaN(v2)) {
-                            result = (p1 * v1) / p2;
-                            unit = "м³";
-                            message = `V₂ = ${formatResult(result, unit)}`;
-                        }
+                        if (unknownIndex === 0) result = (p2 * v2) / v1;
+                        else if (unknownIndex === 1) result = (p2 * v2) / p1;
+                        else if (unknownIndex === 3) result = (p1 * v1) / v2;
+                        else if (unknownIndex === 4) result = (p1 * v1) / p2;
                         break;
                         
                     case 'isobaric':
-                        if (isNaN(v1)) {
-                            result = (v2 * t1) / t2;
-                            unit = "м³";
-                            message = `V₁ = ${formatResult(result, unit)}`;
-                        } else if (isNaN(t1)) {
-                            result = (v1 * t2) / v2;
-                            unit = "К";
-                            message = `T₁ = ${formatResult(result, unit)}`;
-                        } else if (isNaN(v2)) {
-                            result = (v1 * t2) / t1;
-                            unit = "м³";
-                            message = `V₂ = ${formatResult(result, unit)}`;
-                        } else if (isNaN(t2)) {
-                            result = (v2 * t1) / v1;
-                            unit = "К";
-                            message = `T₂ = ${formatResult(result, unit)}`;
-                        }
+                        if (unknownIndex === 1) result = (v2 * t1) / t2;
+                        else if (unknownIndex === 2) result = (v1 * t2) / v2;
+                        else if (unknownIndex === 4) result = (v1 * t2) / t1;
+                        else if (unknownIndex === 5) result = (v2 * t1) / v1;
                         break;
                         
                     case 'isochoric': 
-                        if (isNaN(p1)) {
-                            result = (p2 * t1) / t2;
-                            unit = "Па";
-                            message = `p₁ = ${formatResult(result, unit)}`;
-                        } else if (isNaN(t1)) {
-                            result = (p1 * t2) / p2;
-                            unit = "К";
-                            message = `T₁ = ${formatResult(result, unit)}`;
-                        } else if (isNaN(p2)) {
-                            result = (p1 * t2) / t1;
-                            unit = "Па";
-                            message = `p₂ = ${formatResult(result, unit)}`;
-                        } else if (isNaN(t2)) {
-                            result = (p2 * t1) / p1;
-                            unit = "К";
-                            message = `T₂ = ${formatResult(result, unit)}`;
-                        }
+                        if (unknownIndex === 0) result = (p2 * t1) / t2;
+                        else if (unknownIndex === 2) result = (p1 * t2) / p2;
+                        else if (unknownIndex === 3) result = (p1 * t2) / t1;
+                        else if (unknownIndex === 5) result = (p2 * t1) / p1;
                         break;
+                }
+                
+                if (result !== undefined) {
+                    message = `${paramName} = ${formatResult(result, unit, type)}`;
+                } else {
+                    message = "Невозможно вычислить эту величину для выбранного процесса";
                 }
             }
             
@@ -1132,27 +1485,44 @@
             hideResult('result-isoprocess');
         }
 
-
         function calculateMKT() {
             const container = event.target.closest('.formula-item');
-            const p = toNumber(container.querySelector('.p-mantissa').value, container.querySelector('.p-exponent').value);
-            const n = toNumber(container.querySelector('.n-mantissa').value, container.querySelector('.n-exponent').value);
-            const e = toNumber(container.querySelector('.e-mantissa').value, container.querySelector('.e-exponent').value);
+            const p = toNumber(
+                container.querySelector('.p-mantissa').value, 
+                container.querySelector('.p-exponent').value,
+                container.querySelector('.p-unit').value,
+                'pressure'
+            );
+            const n = toNumber(
+                container.querySelector('.n-mantissa').value, 
+                container.querySelector('.n-exponent').value,
+                container.querySelector('.n-unit').value,
+                'concentration'
+            );
+            const e = toNumber(
+                container.querySelector('.e-mantissa').value, 
+                container.querySelector('.e-exponent').value,
+                container.querySelector('.e-unit').value,
+                'energy'
+            );
             
-            let result, unit, message;
+            let result, unit, type, message;
             
             if (!isNaN(p) && !isNaN(n)) {
                 result = (3 * p) / (2 * n);
-                unit = "Дж";
-                message = `Средняя кинетическая энергия E = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.e-unit').value;
+                type = 'energy';
+                message = `Средняя кинетическая энергия E = ${formatResult(result, unit, type)}`;
             } else if (!isNaN(p) && !isNaN(e)) {
                 result = (3 * p) / (2 * e);
-                unit = "м⁻³";
-                message = `Концентрация n = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.n-unit').value;
+                type = 'concentration';
+                message = `Концентрация n = ${formatResult(result, unit, type)}`;
             } else if (!isNaN(n) && !isNaN(e)) {
                 result = (2 * n * e) / 3;
-                unit = "Па";
-                message = `Давление p = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.p-unit').value;
+                type = 'pressure';
+                message = `Давление p = ${formatResult(result, unit, type)}`;
             } else {
                 message = "Введите значения для любых двух величин";
             }
@@ -1166,21 +1536,99 @@
             hideResult('result-mkt');
         }
 
+        function calculateMKT2() {
+            const container = event.target.closest('.formula-item');
+            const p = toNumber(
+                container.querySelector('.p2-mantissa').value, 
+                container.querySelector('.p2-exponent').value,
+                container.querySelector('.p2-unit').value,
+                'pressure'
+            );
+            const n = toNumber(
+                container.querySelector('.n2-mantissa').value, 
+                container.querySelector('.n2-exponent').value,
+                container.querySelector('.n2-unit').value,
+                'concentration'
+            );
+            const m0 = toNumber(
+                container.querySelector('.m0-mantissa').value, 
+                container.querySelector('.m0-exponent').value,
+                container.querySelector('.m0-unit').value,
+                'mass'
+            );
+            const v = toNumber(
+                container.querySelector('.v2-mantissa').value, 
+                container.querySelector('.v2-exponent').value,
+                container.querySelector('.v2-unit').value,
+                'velocity'
+            );
+            
+            let result, unit, type, message;
+            const values = [p, n, m0, v];
+            const filled = getFilledCount(values);
+            
+            if (filled < 3) {
+                message = "Введите значения для любых трёх величин";
+            } else {
+                if (isNaN(p)) {
+                    result = (1/3) * n * m0 * v * v;
+                    unit = container.querySelector('.p2-unit').value;
+                    type = 'pressure';
+                    message = `Давление p = ${formatResult(result, unit, type)}`;
+                } else if (isNaN(n)) {
+                    result = (3 * p) / (m0 * v * v);
+                    unit = container.querySelector('.n2-unit').value;
+                    type = 'concentration';
+                    message = `Концентрация n = ${formatResult(result, unit, type)}`;
+                } else if (isNaN(m0)) {
+                    result = (3 * p) / (n * v * v);
+                    unit = container.querySelector('.m0-unit').value;
+                    type = 'mass';
+                    message = `Масса молекулы m₀ = ${formatResult(result, unit, type)}`;
+                } else if (isNaN(v)) {
+                    result = Math.sqrt((3 * p) / (n * m0));
+                    unit = container.querySelector('.v2-unit').value;
+                    type = 'velocity';
+                    message = `Скорость v = ${formatResult(result, unit, type)}`;
+                }
+            }
+            
+            showResult('result-mkt2', message);
+        }
+
+        function clearMKT2() {
+            const container = document.querySelector('.formula-section:nth-child(2) .formula-item:nth-child(2)');
+            clearInputs(container);
+            hideResult('result-mkt2');
+        }
+
         function calculateKineticEnergy() {
             const container = event.target.closest('.formula-item');
-            const e = toNumber(container.querySelector('.e-mantissa').value, container.querySelector('.e-exponent').value);
-            const t = toNumber(container.querySelector('.t-mantissa').value, container.querySelector('.t-exponent').value);
+            const e = toNumber(
+                container.querySelector('.e-mantissa').value, 
+                container.querySelector('.e-exponent').value,
+                container.querySelector('.e-unit').value,
+                'energy'
+            );
+            const t = toNumber(
+                container.querySelector('.t-mantissa').value, 
+                container.querySelector('.t-exponent').value,
+                container.querySelector('.t-unit').value,
+                'temperature'
+            );
             
-            let result, unit, message;
+            let result, unit, type, message;
             
             if (!isNaN(t)) {
                 result = (3/2) * k * t;
-                unit = "Дж";
-                message = `Средняя кинетическая энергия E = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.e-unit').value;
+                type = 'energy';
+                message = `Средняя кинетическая энергия E = ${formatResult(result, unit, type)}`;
             } else if (!isNaN(e)) {
                 result = (2 * e) / (3 * k);
-                unit = "К";
-                message = `Температура T = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.t-unit').value;
+                type = 'temperature';
+                message = `Температура T = ${formatResult(result, unit, type)}`;
             } else {
                 message = "Введите значение температуры или энергии";
             }
@@ -1189,31 +1637,49 @@
         }
 
         function clearKineticEnergy() {
-            const container = document.querySelector('.formula-section:nth-child(2) .formula-item:nth-child(2)');
+            const container = document.querySelector('.formula-section:nth-child(2) .formula-item:nth-child(3)');
             clearInputs(container);
             hideResult('result-kinetic-energy');
         }
 
         function calculateInternalEnergy() {
             const container = event.target.closest('.formula-item');
-            const u = toNumber(container.querySelector('.u-mantissa').value, container.querySelector('.u-exponent').value);
-            const nu = toNumber(container.querySelector('.nu-mantissa').value, container.querySelector('.nu-exponent').value);
-            const t = toNumber(container.querySelector('.t-mantissa').value, container.querySelector('.t-exponent').value);
+            const u = toNumber(
+                container.querySelector('.u-mantissa').value, 
+                container.querySelector('.u-exponent').value,
+                container.querySelector('.u-unit').value,
+                'energy'
+            );
+            const nu = toNumber(
+                container.querySelector('.nu-mantissa').value, 
+                container.querySelector('.nu-exponent').value,
+                container.querySelector('.nu-unit').value,
+                'amount'
+            );
+            const t = toNumber(
+                container.querySelector('.t-mantissa').value, 
+                container.querySelector('.t-exponent').value,
+                container.querySelector('.t-unit').value,
+                'temperature'
+            );
             
-            let result, unit, message;
+            let result, unit, type, message;
             
             if (!isNaN(nu) && !isNaN(t)) {
                 result = (3/2) * nu * R * t;
-                unit = "Дж";
-                message = `Внутренняя энергия U = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.u-unit').value;
+                type = 'energy';
+                message = `Внутренняя энергия U = ${formatResult(result, unit, type)}`;
             } else if (!isNaN(u) && !isNaN(t)) {
                 result = (2 * u) / (3 * R * t);
-                unit = "моль";
-                message = `Количество вещества ν = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.nu-unit').value;
+                type = 'amount';
+                message = `Количество вещества ν = ${formatResult(result, unit, type)}`;
             } else if (!isNaN(u) && !isNaN(nu)) {
                 result = (2 * u) / (3 * nu * R);
-                unit = "К";
-                message = `Температура T = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.t-unit').value;
+                type = 'temperature';
+                message = `Температура T = ${formatResult(result, unit, type)}`;
             } else {
                 message = "Введите значения для любых двух величин";
             }
@@ -1229,24 +1695,42 @@
 
         function calculateFirstLaw() {
             const container = event.target.closest('.formula-item');
-            const q = toNumber(container.querySelector('.q-mantissa').value, container.querySelector('.q-exponent').value);
-            const du = toNumber(container.querySelector('.du-mantissa').value, container.querySelector('.du-exponent').value);
-            const a = toNumber(container.querySelector('.a-mantissa').value, container.querySelector('.a-exponent').value);
+            const q = toNumber(
+                container.querySelector('.q-mantissa').value, 
+                container.querySelector('.q-exponent').value,
+                container.querySelector('.q-unit').value,
+                'energy'
+            );
+            const du = toNumber(
+                container.querySelector('.du-mantissa').value, 
+                container.querySelector('.du-exponent').value,
+                container.querySelector('.du-unit').value,
+                'energy'
+            );
+            const a = toNumber(
+                container.querySelector('.a-mantissa').value, 
+                container.querySelector('.a-exponent').value,
+                container.querySelector('.a-unit').value,
+                'energy'
+            );
             
-            let result, unit, message;
+            let result, unit, type, message;
             
             if (!isNaN(du) && !isNaN(a)) {
                 result = du + a;
-                unit = "Дж";
-                message = `Количество теплоты Q = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.q-unit').value;
+                type = 'energy';
+                message = `Количество теплоты Q = ${formatResult(result, unit, type)}`;
             } else if (!isNaN(q) && !isNaN(a)) {
                 result = q - a;
-                unit = "Дж";
-                message = `Изменение внутренней энергии ΔU = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.du-unit').value;
+                type = 'energy';
+                message = `Изменение внутренней энергии ΔU = ${formatResult(result, unit, type)}`;
             } else if (!isNaN(q) && !isNaN(du)) {
                 result = q - du;
-                unit = "Дж";
-                message = `Работа газа A' = ${formatResult(result, unit)}`;
+                unit = container.querySelector('.a-unit').value;
+                type = 'energy';
+                message = `Работа газа A' = ${formatResult(result, unit, type)}`;
             } else {
                 message = "Введите значения для любых двух величин";
             }
@@ -1262,36 +1746,72 @@
 
         function calculateEfficiency() {
             const container = event.target.closest('.formula-item');
-            const eta = toNumber(container.querySelector('.eta-mantissa').value, container.querySelector('.eta-exponent').value);
-            const a = toNumber(container.querySelector('.a-mantissa').value, container.querySelector('.a-exponent').value);
-            const q1 = toNumber(container.querySelector('.q1-mantissa').value, container.querySelector('.q1-exponent').value);
-            const q2 = toNumber(container.querySelector('.q2-mantissa').value, container.querySelector('.q2-exponent').value);
+            const eta = toNumber(
+                container.querySelector('.eta-mantissa').value, 
+                container.querySelector('.eta-exponent').value,
+                container.querySelector('.eta-unit').value,
+                'efficiency'
+            );
+            const a = toNumber(
+                container.querySelector('.a-mantissa').value, 
+                container.querySelector('.a-exponent').value,
+                container.querySelector('.a-unit').value,
+                'energy'
+            );
+            const q1 = toNumber(
+                container.querySelector('.q1-mantissa').value, 
+                container.querySelector('.q1-exponent').value,
+                container.querySelector('.q1-unit').value,
+                'energy'
+            );
+            const q2 = toNumber(
+                container.querySelector('.q2-mantissa').value, 
+                container.querySelector('.q2-exponent').value,
+                container.querySelector('.q2-unit').value,
+                'energy'
+            );
             
-            let result, message;
+            let result, unit, type, message;
+            const etaUnit = container.querySelector('.eta-unit').value;
             
             if (!isNaN(a) && !isNaN(q1)) {
                 result = a / q1;
-                message = `КПД η = ${formatPercentage(result)}`;
+                message = `КПД η = ${formatPercentage(result, etaUnit)}`;
             } else if (!isNaN(q1) && !isNaN(q2)) {
                 result = (q1 - q2) / q1;
-                message = `КПД η = ${formatPercentage(result)}`;
+                message = `КПД η = ${formatPercentage(result, etaUnit)}`;
             } else if (!isNaN(eta) && !isNaN(q1)) {
+                const etaValue = (etaUnit === '%') ? eta / 100 : eta;
                 if (!isNaN(a)) {
-                    result = eta * q1;
-                    message = `Работа A' = ${formatResult(result, "Дж")}`;
+                    result = etaValue * q1;
+                    unit = container.querySelector('.a-unit').value;
+                    type = 'energy';
+                    message = `Работа A' = ${formatResult(result, unit, type)}`;
                 } else if (!isNaN(q2)) {
-                    result = q1 - eta * q1;
-                    message = `Теплота холодильника Q₂ = ${formatResult(result, "Дж")}`;
+                    result = q1 - etaValue * q1;
+                    unit = container.querySelector('.q2-unit').value;
+                    type = 'energy';
+                    message = `Теплота холодильника Q₂ = ${formatResult(result, unit, type)}`;
                 } else {
-                    result = eta * q1;
-                    message = `Работа A' = ${formatResult(result, "Дж")}<br>Теплота холодильника Q₂ = ${formatResult(q1 - result, "Дж")}`;
+                    result = etaValue * q1;
+                    const work = result;
+                    const q2val = q1 - result;
+                    const workUnit = container.querySelector('.a-unit').value;
+                    const q2Unit = container.querySelector('.q2-unit').value;
+                    message = `Работа A' = ${formatResult(work, workUnit, 'energy')}<br>Теплота холодильника Q₂ = ${formatResult(q2val, q2Unit, 'energy')}`;
                 }
             } else if (!isNaN(eta) && !isNaN(a)) {
-                result = a / eta;
-                message = `Теплота нагревателя Q₁ = ${formatResult(result, "Дж")}`;
+                const etaValue = (etaUnit === '%') ? eta / 100 : eta;
+                result = a / etaValue;
+                unit = container.querySelector('.q1-unit').value;
+                type = 'energy';
+                message = `Теплота нагревателя Q₁ = ${formatResult(result, unit, type)}`;
             } else if (!isNaN(eta) && !isNaN(q2)) {
-                result = q2 / (1 - eta);
-                message = `Теплота нагревателя Q₁ = ${formatResult(result, "Дж")}`;
+                const etaValue = (etaUnit === '%') ? eta / 100 : eta;
+                result = q2 / (1 - etaValue);
+                unit = container.querySelector('.q1-unit').value;
+                type = 'energy';
+                message = `Теплота нагревателя Q₁ = ${formatResult(result, unit, type)}`;
             } else {
                 message = "Введите значения для любых двух величин";
             }
@@ -1307,23 +1827,43 @@
 
         function calculateCarnot() {
             const container = event.target.closest('.formula-item');
-            const eta = toNumber(container.querySelector('.eta-mantissa').value, container.querySelector('.eta-exponent').value);
-            const t1 = toNumber(container.querySelector('.t1-mantissa').value, container.querySelector('.t1-exponent').value);
-            const t2 = toNumber(container.querySelector('.t2-mantissa').value, container.querySelector('.t2-exponent').value);
+            const eta = toNumber(
+                container.querySelector('.eta-mantissa').value, 
+                container.querySelector('.eta-exponent').value,
+                container.querySelector('.eta-unit').value,
+                'efficiency'
+            );
+            const t1 = toNumber(
+                container.querySelector('.t1-mantissa').value, 
+                container.querySelector('.t1-exponent').value,
+                container.querySelector('.t1-unit').value,
+                'temperature'
+            );
+            const t2 = toNumber(
+                container.querySelector('.t2-mantissa').value, 
+                container.querySelector('.t2-exponent').value,
+                container.querySelector('.t2-unit').value,
+                'temperature'
+            );
             
-            let result, unit, message;
+            let result, unit, type, message;
+            const etaUnit = container.querySelector('.eta-unit').value;
             
             if (!isNaN(t1) && !isNaN(t2)) {
                 result = 1 - (t2 / t1);
-                message = `КПД Карно η = ${formatPercentage(result)}`;
+                message = `КПД Карно η = ${formatPercentage(result, etaUnit)}`;
             } else if (!isNaN(eta) && !isNaN(t1)) {
-                result = t1 * (1 - eta);
-                unit = "К";
-                message = `Температура холодильника T₂ = ${formatResult(result, unit)}`;
+                const etaValue = (etaUnit === '%') ? eta / 100 : eta;
+                result = t1 * (1 - etaValue);
+                unit = container.querySelector('.t2-unit').value;
+                type = 'temperature';
+                message = `Температура холодильника T₂ = ${formatResult(result, unit, type)}`;
             } else if (!isNaN(eta) && !isNaN(t2)) {
-                result = t2 / (1 - eta);
-                unit = "К";
-                message = `Температура нагревателя T₁ = ${formatResult(result, unit)}`;
+                const etaValue = (etaUnit === '%') ? eta / 100 : eta;
+                result = t2 / (1 - etaValue);
+                unit = container.querySelector('.t1-unit').value;
+                type = 'temperature';
+                message = `Температура нагревателя T₁ = ${formatResult(result, unit, type)}`;
             } else {
                 message = "Введите значения для любых двух величин";
             }
@@ -1347,10 +1887,10 @@
                 }
             });
             
-            const rhoInputs = document.querySelectorAll('.rho-mantissa');
-            rhoInputs.forEach(input => {
-                if (input.value === '' && input.classList.contains('rho-mantissa')) {
-                    input.value = '1000';
+            const m0Inputs = document.querySelectorAll('.m0-exponent');
+            m0Inputs.forEach(input => {
+                if (input.value === '' || input.value === '0') {
+                    input.value = '-27';
                 }
             });
         });
